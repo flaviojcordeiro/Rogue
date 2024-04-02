@@ -55,3 +55,16 @@ nav {
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
 }
+.nav-items ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.nav-items li {
+  list-style: none;
+}
+.nav-items a {
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+}
