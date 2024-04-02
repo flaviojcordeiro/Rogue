@@ -1,53 +1,10 @@
 a {
-    .ubuntu-light {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 300;
-        font-style: normal;
-      }
-      
-      .ubuntu-regular {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-      
-      .ubuntu-medium {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-      }
-      
-      .ubuntu-bold {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-      }
-      
-      .ubuntu-light-italic {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 300;
-        font-style: italic;
-      }
-      
-      .ubuntu-regular-italic {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 400;
-        font-style: italic;
-      }
-      
-      .ubuntu-medium-italic {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 500;
-        font-style: italic;
-      }
-      
-      .ubuntu-bold-italic {
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 700;
-        font-style: italic;
-      }
-      
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #190D00;
 }
+
 nav {
   height: 90px;
   display: flex;
@@ -55,14 +12,17 @@ nav {
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
 }
+
 .nav-items ul {
   margin: 0;
   padding: 0;
   display: flex;
 }
+
 .nav-items li {
   list-style: none;
 }
+
 .nav-items a {
   text-decoration: none;
   padding: 1rem;
