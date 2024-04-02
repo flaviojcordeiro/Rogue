@@ -1,22 +1,24 @@
-a {
+a, h1, h4 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   font-style: normal;
-  color: #190D00;
+  color: black;
 }
 
-nav {
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.navbar {
+  background-color: black;
   height: 90px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0rem calc((100vw - 1300px) / 2);
 }
 
 .nav-items ul {
-  margin: 0;
-  padding: 0;
   display: flex;
+  float: right;
 }
 
 .nav-items li {
@@ -27,4 +29,8 @@ nav {
   text-decoration: none;
   padding: 1rem;
   display: block;
+  color: white
+}
+.titleneo {
+  text-align: center;
 }
