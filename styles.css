@@ -64,3 +64,14 @@ body {
   text-align: center;
   margin-top: 20px; 
 }
+
+footer {
+  background-color: black;
+  bottom:0%;
+  height: 400px;
+  width: 100%;
+}
+
+footer > p{
+  color: white;
+}
