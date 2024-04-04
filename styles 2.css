@@ -1,0 +1,36 @@
+a, h1, h4 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.navbar {
+  background-color: black;
+  height: 90px;
+  align-items: center;
+}
+
+.nav-items ul {
+  display: flex;
+  float: right;
+}
+
+.nav-items li {
+  list-style: none;
+}
+
+.nav-items a {
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  color: white
+}
+.titleneo {
+  text-align: center;
+}
