@@ -70,8 +70,20 @@ footer {
   bottom:0%;
   height: 400px;
   width: 100%;
+  padding-top: 20px;
 }
 
-footer > p{
-  color: white;
+footer ul {
+  display: flex;
 }
+
+footer a {
+  padding: 3rem;
+  font-size: 14px;
+}
+
+footer ul li a {
+  color: white; 
+  text-decoration: none; 
+}
+
