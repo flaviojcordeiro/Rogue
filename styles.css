@@ -1,8 +1,16 @@
-a, h1, h4 {
+a, h1, h3 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   font-style: normal;
   color: black;
+}
+
+p {
+  font-family: "Reddit Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 14px;
 }
 
 body {
@@ -14,6 +22,10 @@ body {
   background-color: black;
   height: 90px;
   align-items: center;
+  position: fixed; 
+  width: 100%;
+  top: 0;
+  z-index: 1000; 
 }
 
 .nav-items ul {
@@ -33,4 +45,22 @@ body {
 }
 .titleneo {
   text-align: center;
+  margin-top: 130px;
+}
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  padding: 50px;
+}
+.wrapper > div{
+  padding: 2px;
+}
+.wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+.description {
+  text-align: center;
+  margin-top: 20px; 
 }
