@@ -27,21 +27,5 @@
         </nav>
     </section>
 </head>
-
-<body bgcolor="FFFEF8">
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="auth.php" method="post">
-            <label for="username">Usuário:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Senha:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Entrar">
-        </form>
-    </div>
-</body>
-
-</html>
-
 <body bgcolor="FFFEF8"></body>
 </html>
