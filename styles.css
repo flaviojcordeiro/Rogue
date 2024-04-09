@@ -44,8 +44,11 @@ body {
 }
 
 .logo img{
-  width: 30px;
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 45px;
   height: auto;
+  filter: invert(100%);
 }
 
 .tituloindex {
