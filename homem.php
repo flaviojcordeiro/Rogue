@@ -16,11 +16,11 @@
         <nav class="navbar">
             <div class="nav-items">
                 <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="guardaroupas.html">guarda-roupa</a></li>
-                    <li><a href="homem.html">homem</a></li>
-                    <li><a href="mulher.html">mulher</a></li>
-                    <li><a href="quemsomos.html">quem somos</a></li>
+                    <li><a href="index.php">home</a></li>
+                    <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                    <li><a href="homem.php">homem</a></li>
+                    <li><a href="mulher.php">mulher</a></li>
+                    <li><a href="quemsomos.php">quem somos</a></li>
                 </ul>
             </div>
         </nav>

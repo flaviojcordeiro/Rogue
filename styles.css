@@ -6,11 +6,10 @@ a, h1, h3 {
 }
 
 p {
-  font-family: "Reddit Mono", monospace;
+  font-family: "Ubuntu", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 14px;
+  font-weight: 350;
+  font-size: 15px;
 }
 
 body {
@@ -43,7 +42,13 @@ body {
   display: block;
   color: white
 }
-.titleneo {
+
+.logo img{
+  width: 30px;
+  height: auto;
+}
+
+.tituloindex {
   text-align: center;
   margin-top: 130px;
 }

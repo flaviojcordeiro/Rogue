@@ -16,18 +16,19 @@
         <nav class="navbar">
             <div class="nav-items">
                 <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="guardaroupas.html">guarda-roupa</a></li>
-                    <li><a href="homem.html">homem</a></li>
-                    <li><a href="mulher.html">mulher</a></li>
-                    <li><a href="quemsomos.html">quem somos</a></li>
+                    <li><a href="index.php">home</a></li>
+                    <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                    <li><a href="homem.php">homem</a></li>
+                    <li><a href="mulher.php">mulher</a></li>
+                    <li><a href="quemsomos.php">quem somos</a></li>
+                    <div class="logo"><img src="do-utilizador.png" alt="Logo"></div>
                 </ul>
             </div>
         </nav>
     </section>
 </head>
 <body bgcolor="FFFEF8">
-    <section class="titleneo">
+    <section class="tituloindex">
         <h1>sales</h1>
         <h3>new arrivals</h3>
     </section>
@@ -35,43 +36,43 @@
         <div class="wrapper">
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 1</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 2</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 3</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 4</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 5</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 6</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 7</p>
+                <p>R$145,00</p>
             </div>
             <div>
                 <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa da Gasosa</p>
-                <p>R$10.000,00</p>
+                <p>Roupa 8</p>
+                <p>R$145,00</p>
             </div>
         </div>        
     </section>
