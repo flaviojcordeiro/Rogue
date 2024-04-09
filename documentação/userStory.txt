@@ -91,6 +91,14 @@ Quando acesso a área de recomendação
 
 Então devo encontrar sugestões de combinações de roupas que se adequam ao meu estilo
 
+Critério de Aceite 3
+
+Dado que estou interessado em descobrir novas tendências de moda
+
+Quando acesso a área de recomendação
+
+Então devo receber recomendações de produtos que estão em alta e que podem complementar meu estilo atual.
+
 
 
 User story | Manter produtos do estoque
@@ -116,3 +124,12 @@ Dado que um produto está com baixa no estoque
 Quando acesso a área de gestão de estoque
 
 Então sou comunicado da falta dele
+
+Critério de Aceite 3
+
+Dado que preciso manter um histórico de alterações no estoque
+
+Quando acesso a área de gestão de estoque
+
+Então posso visualizar um registro detalhado de todas as alterações feitas nos produtos, 
+incluindo adições, edições e remoções, com data e hora registradas.
