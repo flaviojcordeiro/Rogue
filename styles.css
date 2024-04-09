@@ -49,6 +49,12 @@ body {
   filter: invert(100%);
 }
 
+.carrinho img{
+  width: 45px;
+  height: auto;
+  filter: invert(100%);
+}
+
 .tituloindex {
   text-align: center;
   margin-top: 130px;
