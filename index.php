@@ -28,6 +28,7 @@
         </nav>
     </section>
 </head>
+
 <body bgcolor="FFFEF8">
     <section class="tituloindex">
         <h1>sales</h1>
@@ -75,18 +76,18 @@
                 <p>Roupa 8</p>
                 <p>R$145,00</p>
             </div>
-        </div>        
+        </div>
     </section>
 </body>
 <footer>
-    <ul>
-        <li><a>rogue</a></li>
-        <li><a>minha conta</a></li>
-        <li><a>políticas</a></li>
-        <li><a>sustentabilidade</a></li>
-        <li><a>fale conosco</a></li>
-        <li><a>follow us</a></li>
-        <li><a>newsletter</a></li>
-    </ul>
+    <ul class="titulo-footer">
+        <li class="tituloindex"><a>rogue</a></li>
+        <li class="tituloindex"><a>minha conta</a></li>
+        <li class="tituloindex"><a>políticas</a></li>
+        <li class="tituloindex"><a>sustentabilidade</a></li>
+        <li class="tituloindex"><a>fale conosco</a></li>
+        <li class="tituloindex"><a>follow us</a></li>
+        <li class="tituloindex"><a>newsletter</a></li>
 </footer>
+
 </html>
