@@ -21,7 +21,7 @@
                     <li><a href="homem.php">homem</a></li>
                     <li><a href="mulher.php">mulher</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
-                    <div class="logo"><img src="do-utilizador.png" alt="Logo"></div>
+                    <li class="logo"><a href="login.php"><img src="do-utilizador.png" alt="logo"></a></li>
                 </ul>
             </div>
         </nav>
