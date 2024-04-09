@@ -1,3 +1,6 @@
+
+/* -=-= ESTILO DE FONTES =-=- */
+
 a, h1, h3 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
@@ -17,6 +20,8 @@ body {
   margin: 0;
 }
 
+/* -=-= NAVBAR =-=- */
+
 .navbar {
   background-color: black;
   height: 90px;
@@ -32,16 +37,13 @@ body {
   float: right;
 }
 
-.nav-items li {
-  list-style: none;
-}
-
 .nav-items a {
   text-decoration: none;
   padding: 1rem;
   display: block;
   color: white;
 }
+/* -=-= LOGO CARRINHO E TITULO =-=- */
 
 .logo img{
   width: 45px;
@@ -49,10 +51,19 @@ body {
   filter: invert(100%);
 }
 
+.carrinho img{
+  width: 45px;
+  height: auto;
+  filter: invert(100%);
+}
+
+/* -=-= ESTILO DOS CARDS =-=- */
+
 .tituloindex {
   text-align: center;
   margin-top: 130px;
 }
+
 .wrapper{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -70,6 +81,8 @@ body {
   text-align: center;
   margin-top: 20px; 
 }
+
+/* -=-= FOOTER  =-=- */
 
 footer {
   background-color: black;
