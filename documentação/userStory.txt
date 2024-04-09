@@ -1,0 +1,118 @@
+User story | Acessar área do administrador
+
+Como - Administrador
+
+Posso - Acessar área de administrador
+
+Para - Gerenciar as configurações e funcionalidades do sistema.
+
+Critério de Aceite 1
+
+Dado que sou um administrador
+
+Quando acesso a área do administrador
+
+Então consigo gerenciar as configurações e funcionalidades do sistema conforme necessário.
+
+Critério de Aceite 2
+
+Dado que sou um administrador
+
+Quando informo credenciais erradas no login
+
+Então não consigo acessar a área de administrador
+
+Critério de Aceite 3
+
+Dado que não sou um administrador
+
+Quando tento logar no sistema dele
+
+Então recebo uma mensagem me informando que não tenho as permissões necessárias
+
+
+
+
+User story | Manter o cadastro de comprador
+
+Como - Comprador
+
+Posso - Acessar área de cadastro
+
+Para - Conseguir gerenciar minhas informações como comprador
+
+Critério de Aceite 1
+
+Dado que eu sou um comprador
+
+Quando acesso a área de cadastro
+
+Então consigo fazer login quando necessário.
+
+Critério de Aceite 2
+
+Dado que acesso a área de compras
+
+Quando entro no meu carrinho
+
+Então consigo ver as peças que vou comprar
+
+Critério de Aceite 3
+
+Dado que tento cadastrar meu cartão de crédito
+
+Quando informo credenciais erradas
+
+Então sou comunicado pelo site qual foi meu erro
+
+
+
+User story | Acessar area de recomendação
+
+Como - Comprador
+
+Posso - Acessar área de recomendação
+
+Para - Comprar ter a melhor experiência de compra que posso ter
+
+Critério de Aceite 1
+
+Dado que não tenho certeza de qual roupa comprar
+
+Quando acesso a área de recomendação
+
+Então posso encontrar suporte para achar a melhor peça de roupa para mim
+
+Critério de Aceite 2
+
+Dado que estou buscando inspiração para montar meu próximo look
+
+Quando acesso a área de recomendação
+
+Então devo encontrar sugestões de combinações de roupas que se adequam ao meu estilo
+
+
+
+User story | Manter produtos do estoque
+
+Como - Administrador
+
+Posso - Manter os produtos do estoque
+
+Para - Garantir que os produtos estejam sempre atualizados e disponíveis para venda.
+
+Critério de Aceite 1
+
+Dado que sou um administrador
+
+Quando acesso a área de gestão de estoque
+
+Então posso adicionar, editar ou remover produtos do estoque conforme necessário.
+
+Critério de Aceite 2
+
+Dado que um produto está com baixa no estoque
+
+Quando acesso a área de gestão de estoque
+
+Então sou comunicado da falta dele
