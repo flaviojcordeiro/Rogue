@@ -35,6 +35,7 @@ body {
 .nav-items ul {
   display: flex;
   float: right;
+  margin-right: 20px;
 }
 
 .nav-items a {
@@ -45,14 +46,8 @@ body {
 }
 /* -=-= LOGO CARRINHO E TITULO =-=- */
 
-.logo img{
-  width: 45px;
-  height: auto;
-  filter: invert(100%);
-}
-
-.carrinho img{
-  width: 45px;
+.logo img, .carrinho img{
+  width: 25px;
   height: auto;
   filter: invert(100%);
 }
@@ -61,8 +56,17 @@ body {
 
 .tituloindex {
   text-align: center;
-  margin-top: 130px;
+  margin-top: 180px;
+  line-height: 10px;
 }
+.tituloindex h1 {
+  font-size: 40px;
+}
+.tituloindex h3 {
+  color: rgb(68, 68, 68);
+  font-size: 20px;
+}
+
 
 .wrapper{
   display: grid;
@@ -86,13 +90,12 @@ body {
 
 footer {
   background-color: black;
-  bottom:0%;
   height: 400px;
-  width: 100%;
   padding-top: 20px;
 }
 
 footer ul {
+  justify-content: center;
   display: flex;
 }
 
