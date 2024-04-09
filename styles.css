@@ -40,12 +40,10 @@ body {
   text-decoration: none;
   padding: 1rem;
   display: block;
-  color: white
+  color: white;
 }
 
 .logo img{
-  margin-top: 5px;
-  margin-right: 10px;
   width: 45px;
   height: auto;
   filter: invert(100%);
