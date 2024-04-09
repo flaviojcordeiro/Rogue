@@ -47,7 +47,7 @@ Dado que eu sou um comprador
 
 Quando acesso a área de cadastro
 
-Então consigo fazer login quando necessário.
+Então consigo fazer login ou logout quando necessário.
 
 Critério de Aceite 2
 
@@ -55,7 +55,7 @@ Dado que acesso a área de compras
 
 Quando entro no meu carrinho
 
-Então consigo ver as peças que vou comprar
+Então consigo ver as peças que selecionei para compra
 
 Critério de Aceite 3
 
@@ -63,8 +63,8 @@ Dado que tento cadastrar meu cartão de crédito
 
 Quando informo credenciais erradas
 
-Então sou comunicado pelo site qual foi meu erro
-
+Então sou comunicado pelo site se eu errei em CPF, NOME, NÚMERO DO CARTÃO, CVV,
+data de vencimento ou data de nascimento
 
 
 User story | Acessar area de recomendação
@@ -73,7 +73,7 @@ Como - Comprador
 
 Posso - Acessar área de recomendação
 
-Para - Comprar ter a melhor experiência de compra que posso ter
+Para - ter uma experiencia de compra personalizada
 
 Critério de Aceite 1
 
@@ -101,11 +101,11 @@ Então devo receber recomendações de produtos que estão em alta e que podem c
 
 
 
-User story | Manter produtos do estoque
+User story | Manter cadastro de produtos
 
 Como - Administrador
 
-Posso - Manter os produtos do estoque
+Posso - Realizar e manter cadastro de produtos
 
 Para - Garantir que os produtos estejam sempre atualizados e disponíveis para venda.
 
