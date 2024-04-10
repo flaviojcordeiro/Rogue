@@ -7,7 +7,7 @@
     <link href="styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         href="https://fonts.googleapis.com/css2?family=Ojuju:wght@500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@300&display=swap" rel="stylesheet">
@@ -80,14 +80,76 @@
     </section>
 </body>
 <footer>
-    <ul class="titulo-footer">
-        <li class="tituloindex"><a>rogue</a></li>
-        <li class="tituloindex"><a>minha conta</a></li>
-        <li class="tituloindex"><a>políticas</a></li>
-        <li class="tituloindex"><a>sustentabilidade</a></li>
-        <li class="tituloindex"><a>fale conosco</a></li>
-        <li class="tituloindex"><a>follow us</a></li>
-        <li class="tituloindex"><a>newsletter</a></li>
+    <div id="footer_content">
+                <div id="footer_contacts">
+                    <h1 class="rogue-footer">Rogue</h1>
+                    <p>Encontre o seu estilo na Rogue.</p>
+
+                    <div id="footer_social_media">
+                        <a href="#" class="footer-link" id="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="footer-link" id="facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="footer-link" id="whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <ul class="footer-list">
+                    <li>
+                        <h3 class="subtitle-footer">Minha Conta</h3>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Guarda Roupas</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Meu Carrinho</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Roupas</a>
+                    </li>
+                </ul>
+
+                <ul class="footer-list">
+                    <li>
+                        <h3 class="subtitle-footer">Produtos</h3>   
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Homem</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Mulher</a>
+                    </li>
+                </ul>
+
+                <div id="footer_subscribe"> 
+                    <h3 class="contatotitulo-footer">Contato</h3>
+
+                    <p>
+                        Digite seu e-mail para entrar em contato conosco!
+                    </p>
+
+                    <div id="input_group">
+                        <input type="email" id="email">
+                        <button>
+                            <i class="fa-regular fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer_copyright">
+                &#169
+                2024 all rights reserved
+            </div>
 </footer>
 
 </html>
