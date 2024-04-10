@@ -108,3 +108,116 @@ footer ul li a {
   color: white; 
   text-decoration: none; 
 }
+
+/* PÁGINA DE LOGIN */
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container form {
+  text-align: center;
+}
+
+.login-container label {
+  font-weight: bold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container input[type="submit"]:hover {
+  background-color: #50575f;
+}
+
+/* PÁGINA DE CADASTRO */
+
+
+.cadastro-container {
+  margin-top: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Ajuste a largura conforme necessário */
+}
+
+.cadastro-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cadastro-container form {
+  text-align: center;
+}
+
+.cadastro-container label {
+  font-weight: bold;
+  display: block; /* Para que os rótulos ocupem uma linha inteira */
+  margin-top: 10px; /* Espaçamento entre os campos */
+}
+
+.cadastro-container input[type="text"],
+.cadastro-container input[type="password"],
+.cadastro-container input[type="email"],
+.cadastro-container input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cadastro-container input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px; /* Espaçamento entre o último campo e o botão */
+}
+
+.cadastro-container input[type="submit"]:hover {
+  background-color: #50575f;
+}
+
+.cadastro-container p {
+  text-align: center;
+  margin-top: 10px;
+}
