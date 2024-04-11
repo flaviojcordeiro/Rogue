@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -12,7 +12,6 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@300&display=swap" rel="stylesheet">
     <title>rogue</title>
-    <section class="nav">
         <nav class="navbar">
             <div class="nav-items">
                 <img src="imagens/roguelogobranca.png" id="logokkjk">
@@ -27,7 +26,6 @@
                 </ul>
             </div>
         </nav>
-    </section>
 </head>
 
 <body bgcolor="FFFEF8">
@@ -79,8 +77,7 @@
             </div>
         </div>
     </section>
-</body>
-<footer>
+    <footer>
     <div id="footer_content">
                 <div id="footer_contacts">
                     <h1 class="rogue-footer">Rogue</h1>
@@ -151,5 +148,7 @@
             </div>
 
 </footer>
+
+</body>
 
 </html>
