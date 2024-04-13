@@ -45,6 +45,11 @@ body {
   display: block;
   color: white;
 }
+
+.nav-items a:hover {
+  transform: scale(1.1);
+}
+
 /* -=-= LOGO CARRINHO E TITULO =-=- */
 
 .logo img, .carrinho img{
@@ -150,7 +155,7 @@ footer {
   opacity: 0.8;
 }
 
-/* PÁGINA DE LOGIN */
+/* --------------------PÁGINA DE LOGIN---------------- */
 
 .login-container {
   position: absolute;
@@ -168,6 +173,10 @@ footer {
   margin-bottom: 20px;
 }
 
+.login-container p{
+  color: black;
+}
+
 .login-container form {
   text-align: center;
 }
@@ -177,6 +186,7 @@ footer {
 }
 
 .login-container input[type="text"],
+
 .login-container input[type="password"] {
   width: 100%;
   padding: 10px;
@@ -185,7 +195,6 @@ footer {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .login-container input[type="submit"] {
   width: 100%;
   padding: 10px;
@@ -195,12 +204,12 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
-
 .login-container input[type="submit"]:hover {
   background-color: #50575f;
 }
 
-/* PÁGINA DE CADASTRO */
+
+/* --------------------PÁGINA DE CADASTRO------------------- */
 
 
 .cadastro-container {
@@ -213,7 +222,7 @@ footer {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Ajuste a largura conforme necessário */
+  width: 300px;
 }
 
 .cadastro-container h2 {
@@ -227,8 +236,8 @@ footer {
 
 .cadastro-container label {
   font-weight: bold;
-  display: block; /* Para que os rótulos ocupem uma linha inteira */
-  margin-top: 10px; /* Espaçamento entre os campos */
+  display: block;
+  margin-top: 10px;
 }
 
 .cadastro-container input[type="text"],
@@ -251,7 +260,7 @@ footer {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px; /* Espaçamento entre o último campo e o botão */
+  margin-top: 15px;
 }
 
 .cadastro-container input[type="submit"]:hover {
