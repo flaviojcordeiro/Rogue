@@ -7,10 +7,8 @@
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        href="https://fonts.googleapis.com/css2?family=Ojuju:wght@500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <title>rogue</title>
         <nav class="navbar">
             <div class="nav-items">
@@ -29,54 +27,26 @@
 </head>
 
 <body bgcolor="FFFEF8">
-    <section class="tituloindex">
-        <h1>sales</h1>
-        <h3>new arrivals</h3>
-    </section>
-    <section class="grids">
-        <div class="wrapper">
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 1</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 2</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 3</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 4</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 5</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 6</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 7</p>
-                <p>R$145,00</p>
-            </div>
-            <div>
-                <img src="imagens/osklentest.webp" alt="">
-                <p>Roupa 8</p>
-                <p>R$145,00</p>
-            </div>
+    <div class="content">
+    <h1 class=titulocard>Itens em Alta</h1>
+    <div class="card-container">
+        <div class="card">
+        <img src="imagens/roupasaleatorias/femroupa1.png" alt="Item 1">
+        <h3>Calça moletom Marrom</h3>
+        <p>R$ 229,99</p>
         </div>
-    </section>
+        <div class="card">
+        <img src="imagens/roupasaleatorias/mascroupa1.png" alt="Item 2">
+        <h3>Bermuda moletom Beje</h3>
+        <p>R$ 149,99</p>
+        </div>
+        <div class="card">
+        <img src="imagens/roupasaleatorias/mascroupa3.png" alt="Item 3">
+        <h3>Polo Branca</h3>
+        <p>R$ 99,99</p>
+        </div>
+    </div>
+    </div>
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">

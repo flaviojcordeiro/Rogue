@@ -28,15 +28,11 @@
         </nav>
 </head>
 <body bgcolor="FFFEF8">
-    <section class="tituloindex">
-        <h1>quem somos</h1>
-    </section>
-    
-    <section class="quem-somos-content">
-        <p>Somos uma loja de roupas focada em proporcionar estilo e conforto para homens e mulheres de todas as idades. Nossa missão é oferecer produtos de qualidade, seguindo as últimas tendências da moda, e proporcionar uma experiência de compra excepcional para nossos clientes.</p>
-        <p>Trabalhamos com marcas renomadas e buscamos constantemente inovar em nossos produtos e serviços para atender às necessidades e preferências de cada um de nossos clientes.</p>
-        <p>Na Rogue, acreditamos que a moda vai além das roupas que vestimos; é uma forma de expressão e de contar histórias. Queremos ser parte da sua jornada de estilo e ajudar você a se sentir confiante e autêntico(a) em todas as ocasiões.</p>
-    </section>
+<div class="content">
+  <h1 style="text-align: center;">quem somos</h1><br><br><br>
+  <p style="text-align: center;">Somos uma loja de roupas que busca proporcionar as últimas tendências da moda para homens e mulheres. Nosso foco é oferecer produtos de alta qualidade e conforto, sempre seguindo as tendências do momento.</p>
+  <p style="text-align: center; margin-bottom: 360px;">Nossa missão é tornar a experiência de compra online fácil, segura e satisfatória para todos os nossos clientes. Trabalhamos com marcas renomadas e estamos sempre atualizados com as novidades do mundo da moda.</p>
+</div>
 
 <footer>
         <div id="footer_content">
