@@ -7,10 +7,8 @@
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        href="https://fonts.googleapis.com/css2?family=Ojuju:wght@500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <title>rogue</title>
         <nav class="navbar">
             <div class="nav-items">
@@ -31,7 +29,7 @@
 <div class="content">
   <h1 style="text-align: center;">quem somos</h1><br><br><br>
   <p style="text-align: center;">Somos uma loja de roupas que busca proporcionar as últimas tendências da moda para homens e mulheres. Nosso foco é oferecer produtos de alta qualidade e conforto, sempre seguindo as tendências do momento.</p>
-  <p style="text-align: center; margin-bottom: 360px;">Nossa missão é tornar a experiência de compra online fácil, segura e satisfatória para todos os nossos clientes. Trabalhamos com marcas renomadas e estamos sempre atualizados com as novidades do mundo da moda.</p>
+  <p style="text-align: center; margin-bottom: 400px;">Nossa missão é tornar a experiência de compra online fácil, segura e satisfatória para todos os nossos clientes. Trabalhamos com marcas renomadas e estamos sempre atualizados com as novidades do mundo da moda.</p>
 </div>
 
 <footer>
