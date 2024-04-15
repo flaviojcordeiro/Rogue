@@ -29,12 +29,12 @@
 <body bgcolor="FFFEF8">
     <div class="login-container">
         <h2>Login</h2>
-        <form action="req/auth_login.php" method="post">
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="password">Senha:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Entrar">
+        <form action="auth_login.php" method="post">
+             <label for="email">Email:</label><br>
+             <input type="text" id="email" name="email"><br>
+             <label for="senha">Senha:</label><br>
+             <input type="password" id="senha" name="senha"><br><br>
+             <input type="submit" value="Entrar">
         </form>
         <p>Ainda não é cadastrado? Realize seu <a href="cadastro.php">cadastro</a>.</p>
     </div>
