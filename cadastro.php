@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,11 @@
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@300&display=swap" rel="stylesheet">
     <title>rogue</title>
+    <section class="nav">
         <nav class="navbar">
             <div class="nav-items">
                 <img src="imagens/roguelogobranca.png" id="logokkjk">
@@ -24,20 +26,21 @@
                 </ul>
             </div>
         </nav>
+    </section>
 </head>
 
 <body bgcolor="FFFEF8">
     <div class="cadastro-container">
         <h2>Cadastro</h2>
         <form action="req/auth_cadastro.php" method="post">
-        <label for="name">Nome:</label>
-            <input type="text" id="name" name="name"><br>
-            <label for="email">Email:</label>
+            <label for="name">Nome:</label><br>
+            <input type="text" id="name" name="nome"><br>
+            <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
-            <label for="birthdate">Data de Nascimento:</label>
-            <input type="date" id="birthdate" name="birthdate"><br>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password"><br><br>
+            <label for="birthdate">Data de Nascimento:</label><br>
+            <input type="date" id="birthdate" name="data_nascimento"><br>
+            <label for="password">Senha:</label><br>
+            <input type="password" id="password" name="senha"><br><br>
             <input type="submit" value="Cadastrar">
         </form>
         <p>Já possui uma conta? Faça <a href="login.php">login</a>.</p>

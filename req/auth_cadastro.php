@@ -2,11 +2,14 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['birthdate']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['birthdate'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $birthdate = $_POST['birthdate'];
+    $nome = trim($_POST['nome']);
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
+    $data_nascimento = trim($_POST['data_nascimento']);
+
+    if (!empty($nome) && !empty($email) && !empty($senha) && !empty($data_nascimento)) {
+        // Hash da senha
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         $conn = new mysqli('localhost', 'root', '', 'rogue');
 
@@ -14,12 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("INSERT INTO users (name, email, password, birthdate) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $email, $password_hash, $birthdate);
-        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, data_nascimento) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $nome, $email, $senha_hash, $data_nascimento);
 
         if ($stmt->execute()) {
-            echo "Cadastro realizado com sucesso!";
+            header("Location: login.php");
+            exit();
         } else {
             echo "Erro ao cadastrar o usuário: " . $stmt->error;
         }

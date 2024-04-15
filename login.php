@@ -1,43 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
-    <title>rogue</title>
-        <nav class="navbar">
-            <div class="nav-items">
-                <img src="imagens/roguelogobranca.png" id="logokkjk">
-                <ul>
-                    <li><a href="index.php">home</a></li>
-                    <li><a href="guardaroupas.php">guarda-roupa</a></li>
-                    <li><a href="homem.php">homem</a></li>
-                    <li><a href="mulher.php">mulher</a></li>
-                    <li><a href="quemsomos.php">quem somos</a></li>
-                    <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                    <li class="logo"><a href="login.php"><img src="imagens/loginicon.png" alt="logo"></a></li>
-                </ul>
-            </div>
-        </nav>
-</head>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-<body bgcolor="FFFEF8">
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="req/auth_login.php" method="post">
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="password">Senha:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Entrar">
-        </form>
-        <p>Ainda não é cadastrado? Realize seu <a href="cadastro.php">cadastro</a>.</p>
-    </div>
-</body>
+        $conn = new mysqli('localhost', 'root', '', 'rogue');
 
-</html>
+        if ($conn->connect_error) {
+            die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
+        }
+
+        $stmt = $conn->prepare("SELECT id, nome, email, senha, is_admin FROM usuarios WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $stored_password = $row['senha'];
+
+            if (password_verify($senha, $stored_password)) {
+                // Login bem-sucedido
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['nome'] = $row['nome'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['is_admin'] = $row['is_admin'];
+
+                // Redirecionar para a página de perfil ou dashboard, dependendo se é um administrador ou usuário comum
+                if ($row['is_admin']) {
+                    header("Location: adminreg.php");
+                } else {
+                    header("Location: index.php");
+                }
+                exit();
+            } else {
+                echo "Senha incorreta. Tente novamente.";
+            }
+        } else {
+            echo "Nenhum usuário encontrado com o e-mail fornecido.";
+        }
+
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "Por favor, preencha todos os campos.";
+    }
+}
+?>
+
