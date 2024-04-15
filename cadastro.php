@@ -34,7 +34,7 @@
             <input type="text" id="name" name="name"><br>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email"><br>
-            <label for="birthdate">Data de Nascimento:</label><br>
+            <label for="birthdate">Data de Nascimento:</label>
             <input type="date" id="birthdate" name="birthdate"><br>
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password"><br><br>
