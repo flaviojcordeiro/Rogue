@@ -32,7 +32,7 @@
 <body bgcolor="FFFEF8">
     <div class="cadastro-container">
         <h2>Cadastro</h2>
-        <form action="req/auth_cadastro.php" method="post">
+        <form action="auth_cadastro.php" method="post">
             <label for="name">Nome:</label><br>
             <input type="text" id="name" name="nome"><br>
             <label for="email">Email:</label><br>
