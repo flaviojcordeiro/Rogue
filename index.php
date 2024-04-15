@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <title>rogue</title>
+</head>
+
+<body bgcolor="FFFEF8">
+    <?php session_start(); ?>
+    <?php if (isset($_SESSION['nome'])) : ?>
         <nav class="navbar">
             <div class="nav-items">
                 <img src="imagens/roguelogobranca.png" id="logokkjk">
@@ -20,33 +25,51 @@
                     <li><a href="mulher.php">mulher</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                    <li class="logo"><a href="login.php"><img src="imagens/loginicon.png" alt="logo"></a></li>
+                    <li class="logo">
+                        <span><?php echo $_SESSION['nome']; ?></span>
+                        <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>
+                    </li>
                 </ul>
             </div>
         </nav>
-</head>
+    <?php else : ?>
+        <nav class="navbar">
+            <div class="nav-items">
+                <img src="imagens/roguelogobranca.png" id="logokkjk">
+                <ul>
+                    <li><a href="index.php">home</a></li>
+                    <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                    <li><a href="homem.php">homem</a></li>
+                    <li><a href="mulher.php">mulher</a></li>
+                    <li><a href="quemsomos.php">quem somos</a></li>
+                    <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                    <li class="carrinho"><a href="login.php"><img src="imagens/loginicon.png" alt="logout"></a></li>
+                </ul>
+            </div>
+        </nav>
+    <?php endif; ?>
 
-<body bgcolor="FFFEF8">
     <div class="content">
-    <h1 class=titulocard>Itens em Alta</h1>
-    <div class="card-container">
-        <div class="card">
-        <img src="imagens/roupasaleatorias/femroupa1.png" alt="Item 1">
-        <h3>Calça moletom Marrom</h3>
-        <p>R$ 229,99</p>
-        </div>
-        <div class="card">
-        <img src="imagens/roupasaleatorias/mascroupa1.png" alt="Item 2">
-        <h3>Bermuda moletom Beje</h3>
-        <p>R$ 149,99</p>
-        </div>
-        <div class="card">
-        <img src="imagens/roupasaleatorias/mascroupa3.png" alt="Item 3">
-        <h3>Polo Branca</h3>
-        <p>R$ 99,99</p>
+        <h1 class=titulocard>Itens em Alta</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="imagens/roupasaleatorias/femroupa1.png" alt="Item 1">
+                <h3>Calça moletom Marrom</h3>
+                <p>R$ 229,99</p>
+            </div>
+            <div class="card">
+                <img src="imagens/roupasaleatorias/mascroupa1.png" alt="Item 2">
+                <h3>Bermuda moletom Beje</h3>
+                <p>R$ 149,99</p>
+            </div>
+            <div class="card">
+                <img src="imagens/roupasaleatorias/mascroupa3.png" alt="Item 3">
+                <h3>Polo Branca</h3>
+                <p>R$ 99,99</p>
+            </div>
         </div>
     </div>
-    </div>
+
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
@@ -67,7 +90,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <ul class="footer-list">
                 <li>
                     <h3 class="subtitle-footer">Minha Conta</h3>
@@ -85,7 +108,7 @@
 
             <ul class="footer-list">
                 <li>
-                    <h3 class="subtitle-footer">Produtos</h3>   
+                    <h3 class="subtitle-footer">Produtos</h3>
                 </li>
                 <li>
                     <a href="index.php" class="footer-link">Home</a>
@@ -98,7 +121,7 @@
                 </li>
             </ul>
 
-            <div id="footer_subscribe"> 
+            <div id="footer_subscribe">
                 <h3 class="contatotitulo-footer">Contato</h3>
 
                 <p>
@@ -118,4 +141,5 @@
         </div>
     </footer>
 </body>
+
 </html>
