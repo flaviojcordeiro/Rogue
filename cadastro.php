@@ -15,7 +15,6 @@
     <section class="nav">
         <nav class="navbar">
             <div class="nav-items">
-                <img src="imagens/roguelogobranca.png" id="logokkjk">
                 <ul>
                     <li><a href="index.php">home</a></li>
                     <li><a href="guardaroupas.php">guarda-roupa</a></li>
