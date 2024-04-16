@@ -2,25 +2,25 @@ User story | Acessar área do administrador
 
 Como - Administrador
 
-Posso - Acessar área de administrador
+Posso - Acessar página da área de administrador
 
-Para - Gerenciar as configurações e funcionalidades do sistema.
+Para - Gerenciar as configurações primárias e funcionalidades do site.
 
 Critério de Aceite 1
 
 Dado que sou um administrador
 
-Quando acesso a área do administrador
+Quando acesso página de área do administrador
 
-Então consigo gerenciar as configurações e funcionalidades do sistema conforme necessário.
+Então consigo gerenciar as configurações e funcionalidades do site conforme necessário.
 
 Critério de Aceite 2
 
 Dado que sou um administrador
 
-Quando informo credenciais erradas no login
+Quando saio do site e volto um tempo depois
 
-Então não consigo acessar a área de administrador
+Então o site mantém meu login para casa eu preciso acessar a área de configurações do site novamente
 
 Critério de Aceite 3
 
@@ -28,7 +28,7 @@ Dado que não sou um administrador
 
 Quando tento logar no sistema dele
 
-Então recebo uma mensagem me informando que não tenho as permissões necessárias
+Então recebo uma mensagem me informando que não tenho as permissões necessárias e sou redirecionado a central de ajuda
 
 
 
@@ -59,13 +59,11 @@ Então consigo ver as peças que selecionei para compra
 
 Critério de Aceite 3
 
-Dado que tento cadastrar meu cartão de crédito
+Dado que eu sou um comprador
 
-Quando informo credenciais erradas
+Quando eu acesso o site depois de ter feito login
 
-Então sou comunicado pelo site se eu errei em CPF, NOME, NÚMERO DO CARTÃO, CVV,
-data de vencimento ou data de nascimento
-
+Então meu cadastro é mantido não importa quantas vezes eu saia e volte do site
 
 User story | Acessar area de recomendação
 
@@ -73,7 +71,7 @@ Como - Comprador
 
 Posso - Acessar área de recomendação
 
-Para - ter uma experiencia de compra personalizada
+Para - ter uma experiencia de compra personalizada, com a ajuda de algoritmos e pessoal
 
 Critério de Aceite 1
 
@@ -123,7 +121,7 @@ Dado que um produto está com baixa no estoque
 
 Quando acesso a área de gestão de estoque
 
-Então sou comunicado da falta dele
+Então sou comunicado da falta dele do produto e um botão para re-estoque
 
 Critério de Aceite 3
 
