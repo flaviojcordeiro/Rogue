@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Grandiflora+One&display=swap" rel="stylesheet">
     <title>rogue</title>
     <?php session_start(); ?>
     <?php if (isset($_SESSION['nome'])) : ?>
@@ -48,11 +50,28 @@
 </head>
 <body bgcolor="FFFEF8">
 <div class="content">
-  <h1 style="text-align: center;">quem somos</h1><br><br><br>
-  <p style="text-align: center;">Somos uma loja de roupas que busca proporcionar as últimas tendências da moda para homens e mulheres. Nosso foco é oferecer produtos de alta qualidade e conforto, sempre seguindo as tendências do momento.</p>
-  <p style="text-align: center; margin-bottom: 400px;">Nossa missão é tornar a experiência de compra online fácil, segura e satisfatória para todos os nossos clientes. Trabalhamos com marcas renomadas e estamos sempre atualizados com as novidades do mundo da moda.</p>
+ 
 </div>
+<section class="quemsomos">
+    <h1 class="quemsomos-h1">QUEM SOMOS</h1>
+    <p class="quemsomos-main-txt">Rogue, sua nova experiência de moda online que desafia as convenções. Na Rogue, não apenas oferecemos roupas, mas um estilo de vida. Nossa coleção é uma mistura única de elegância e ousadia, projetada para aqueles que se atrevem a ser diferentes. Desde peças clássicas reinventadas até as últimas tendências da moda, cada item em nossa loja é cuidadosamente selecionado para garantir qualidade e estilo inigualáveis. Seja você mesmo, seja autêntico, seja Rogue. Explore nossa loja hoje e descubra o que significa vestir-se com confiança e originalidade.</p>
+    <div class="quemsomos-body">
+        <div class="quemsomos1">
+            <img src="/imagens/quemsomos/roupas-quemsomos.webp">
+            <p>Descubra a verdadeira expressão do seu estilo com as roupas da Rogue. Em cada costura, encontrará o compromisso impecável com a qualidade e o design exclusivo que tornam nossas peças únicas. Do casual ao elegante, cada item reflete a dedicação à excelência artesanal e aos materiais premium. Vista-se com confiança, sabendo que cada escolha é uma afirmação de seu estilo distinto. Descubra o que é ser autêntico. Descubra Rogue.</p>
+        </div>
 
+        <div class="quemsomos2">
+        <p>Explore o tesouro de estilo na Rogue! Nosso estoque é um universo de possibilidades para quem busca se destacar com elegância e autenticidade. De peças clássicas a tendências inovadoras, cada item foi selecionado com cuidado para atender aos mais exigentes gostos. Do casual descontraído ao sofisticado, encontrará tudo o que precisa para criar looks que refletem sua personalidade única. Não espere mais para descobrir as joias escondidas em nosso estoque. Visite-nos hoje mesmo e deixe sua moda falar por si mesma com a Rogue.</p>
+            <img src="/imagens/estoque-quemsomos.webp">
+        </div>
+
+        <div class="quemsomos3">
+            <img src="/imagens/suporte-quemsomos.png">
+            <p>Com o suporte ao cliente online da Rogue, sua experiência de compra atinge um novo patamar de conveniência e excelência. Nossa equipe está sempre à disposição para responder às suas dúvidas, auxiliar com suas escolhas e garantir que sua jornada de compras seja suave e satisfatória. Seja através de chat ao vivo, e-mail ou redes sociais, estamos aqui para oferecer orientação personalizada e resolver qualquer questão que você possa ter. Com o suporte online da Rogue, você nunca está sozinho na busca pelo estilo perfeito. Experimente hoje mesmo e descubra o padrão de atendimento que nos torna a escolha preferida dos fashionistas exigentes.</p>
+        </div>
+    </div>
+</section>
 <footer>
         <div id="footer_content">
             <div id="footer_contacts">
