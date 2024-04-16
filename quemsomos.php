@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Grandiflora+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="imagens/icon.png" type="image/x-icon">
     <title>rogue</title>
     <?php session_start(); ?>
     <?php if (isset($_SESSION['nome'])) : ?>
@@ -20,8 +21,8 @@
                 <ul>
                     <li><a href="index.php">home</a></li>
                     <li><a href="guardaroupas.php">guarda-roupa</a></li>
-                    <li><a href="homem.php">homem</a></li>
-                    <li><a href="mulher.php">mulher</a></li>
+                    <li><a href="homem.php">masculino</a></li>
+                    <li><a href="mulher.php">feminino</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
                     <li class="logo">
@@ -38,8 +39,8 @@
                 <ul>
                     <li><a href="index.php">home</a></li>
                     <li><a href="guardaroupas.php">guarda-roupa</a></li>
-                    <li><a href="homem.php">homem</a></li>
-                    <li><a href="mulher.php">mulher</a></li>
+                    <li><a href="homem.php">masculino</a></li>
+                    <li><a href="mulher.php">feminino</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
                     <li class="carrinho"><a href="login.php"><img src="imagens/loginicon.png" alt="logout"></a></li>
