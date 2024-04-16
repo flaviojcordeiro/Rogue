@@ -403,7 +403,7 @@ footer {
   margin-top: 0px;
   letter-spacing: 5px;
   text-decoration: underline 3px;
-  font-family: "Grandiflora One", cursive;;
+  font-family: "Grandiflora One", cursive;
 }
 
 .quemsomos-main-txt {
@@ -417,29 +417,533 @@ footer {
 }
 
 .quemsomos1 {
-  margin-top: 100px;
-  display: flex;
+  margin-top: 200px;
+  display: inline-flex;
+}
+.quemsomos1 img {
+  width: 600px;
+  float: left;
+  margin-left: 300px;
+  margin-right: 100px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
+
+.quemsomos1 p {
   font-size: 21px;
   margin-right: 200px;
-  margin-left: 800px;
-  line-height: 1.5;
+  line-height: 2;
+  text-align: left;
 }
 
 .quemsomos2 {
-  display: flex;
+  margin-top: 100px;
+  display: inline-flex;
+}
+.quemsomos2 img {
+  width: 600px;
+  float: right;
+  margin-left: 100px;
+  margin-right: 300px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.quemsomos2 p {
   font-size: 21px;
-  margin-right: 800px;
+  margin-right: 200px;
   margin-left: 200px;
-  margin-top: 80px;
-  line-height: 1.5;
+  line-height: 2;
+  text-align: left;
 }
 
 .quemsomos3 {
-  display: flex;
+  margin-top: 100px;
+  display: inline-flex;
+  margin-bottom: 200px;
+}
+.quemsomos3 img {
+  width: 600px;
+  float: left;
+  margin-left: 300px;
+  margin-right: 100px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.quemsomos3 p {
   font-size: 21px;
   margin-right: 200px;
-  margin-left: 800px;
-  margin-top: 80px;
-  margin-bottom: 150px;
+  line-height: 2;
+  text-align: left;
+}
+/* -=-= ESTILO DE FONTES =-=- */
+
+
+body{
+  font-family: "coolvetica", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+  }
+
+/* -=-= NAVBAR =-=- */
+
+.navbar {
+  background-color: black;
+  height: 90px;
+  align-items: center;
+  position: fixed; 
+  width: 100%;
+  top: 0;
+  z-index: 1000; 
+}
+
+.nav-items ul {
+  display: flex;
+  float: right;
+  margin-right: 20px;
+}
+
+.nav-items a {
+  font-weight: 400;
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  color: white;
+}
+
+.nav-items a:hover {
+  transform: scale(1.1);
+}
+
+/* -=-= LOGO CARRINHO E TITULO =-=- */
+
+.logo img, .carrinho img{
+  width: 25px;
+  height: auto;
+  filter: invert(100%);
+}
+#logokkjk {
+  width: 200px;
+}
+/* -=-= ESTILO DOS CARDS =-=- */
+
+.content {
+  padding: 20px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 400px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+.titulocard{
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-weight: 300;
+}
+
+/* -=-= FOOTER  =-=- */
+
+:root {
+  --color-neutral-0: #000000ea;
+  --color-neutral-10: #0e0c0c;
+  --color-neutral-30: #a8a29e;
+  --color-neutral-40: #f5f5f5;
+
+}
+
+footer {
+  width: 100%;
+}
+
+.footer-link{
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+}
+
+.footer-list{
+  text-decoration: none;
+}
+
+#footer_content {
+  background-color: var(--color-neutral-10);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 3.5rem;
+}
+
+#footer_content h1 {
+  color: white;
+}
+
+#footer_content h3 {
+  color: white;
+}
+
+#footer_content p {
+  color: white;
+  font-weight: 300;
+}
+
+
+
+#footer_social_media {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+} 
+
+#footer_social_media .footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  color: var(--color-neutral-40);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+  font-size: 1.25rem;    
+}
+
+#footer_social_media .footer-link:hover {
+  opacity: 0.8;
+}
+
+/* --------------------PÁGINA DE LOGIN---------------- */
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container p{
+  font-weight: 400;
+  color: black;
+}
+
+.login-container form {
+  text-align: center;
+}
+
+.login-container label {
+  font-weight: bold;
+}
+
+.login-container input[type="text"],
+
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.login-container input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-container input[type="submit"]:hover {
+  background-color: #50575f;
+}
+
+
+/* --------------------PÁGINA DE CADASTRO------------------- */
+
+
+.cadastro-container {
+  margin-top: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.cadastro-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cadastro-container p{
+  font-weight: 400;
+}
+
+.cadastro-container form {
+  text-align: center;
+}
+
+.cadastro-container label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+.cadastro-container input[type="text"],
+.cadastro-container input[type="password"],
+.cadastro-container input[type="email"],
+.cadastro-container input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cadastro-container input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.cadastro-container input[type="submit"]:hover {
+  background-color: #50575f;
+}
+
+.cadastro-container p {
+  text-align: center;
+  margin-top: 10px;
+#instagram {
+  background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#facebook {
+  background-color: #4267b3;
+}
+
+#whatsapp {
+  background-color: #25d366;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.footer-list .footer-link {
+  color: var(--color-neutral-30);
+  transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+  color: #c4a000;
+}
+
+.rogue-footer {
+  color: white;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.subtitle-footer {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.contatotitulo-footer h3{
+  color: white;
+  font-weight: 500;
+  font-style: normal;
+  margin-top: 36px;
+}
+
+#footer_subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#footer_subscribe p, h3 {
+  color: white;
+}
+
+#input_group {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-neutral-0);
+  border-radius: 4px;
+}
+
+#input_group input {
+  all: unset;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+#input_group button {
+  background-color: #c4a000;
+  border: none;
+  color: var(--color-neutral-40);
+  padding: 0px 1.25rem;
+  font-size: 1.125rem;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#input_group button:hover {
+  opacity: 0.8;
+}
+
+#footer_copyright {
+  align-self: flex-end;
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  font-weight: 100;
+}
+
+
+@media screen and (max-width: 768px) {
+  #footer_content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #footer_content {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 3rem 2rem;
+  }
+}
+}
+
+/* --------------------PÁGINA DE QUEM SOMOS------------------- */
+
+.quemsomos-h1 {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0px;
+  letter-spacing: 5px;
+  text-decoration: underline 3px;
+  font-family: "Grandiflora One", cursive;
+}
+
+.quemsomos-main-txt {
+  text-align: center;
+  text-justify: distribute;
+  font-size: 25px;
+  margin-left: 300px;
+  margin-right: 300px;
   line-height: 1.5;
+  font-family: "Gantari", sans-serif;
+}
+
+.quemsomos1 {
+  margin-top: 200px;
+  display: inline-flex;
+}
+.quemsomos1 img {
+  width: 600px;
+  float: left;
+  margin-left: 300px;
+  margin-right: 100px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
+
+.quemsomos1 p {
+  font-size: 21px;
+  margin-right: 200px;
+  line-height: 2;
+  text-align: left;
+}
+
+.quemsomos2 {
+  margin-top: 100px;
+  display: inline-flex;
+}
+.quemsomos2 img {
+  width: 600px;
+  float: right;
+  margin-left: 100px;
+  margin-right: 300px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.quemsomos2 p {
+  font-size: 21px;
+  margin-right: 200px;
+  margin-left: 200px;
+  line-height: 2;
+  text-align: left;
+}
+
+.quemsomos3 {
+  margin-top: 100px;
+  display: inline-flex;
+  margin-bottom: 200px;
+}
+.quemsomos3 img {
+  width: 600px;
+  float: left;
+  margin-left: 300px;
+  margin-right: 100px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.quemsomos3 p {
+  font-size: 21px;
+  margin-right: 200px;
+  line-height: 2;
+  text-align: left;
 }
