@@ -2,7 +2,7 @@
 
 $hostname = "localhost";
 $username = "root"; 
-$password = ""; 
+$password = "PUC@1234"; 
 $database = "rogue";
 
 $conn = new mysqli($hostname, $username, $password, $database);
