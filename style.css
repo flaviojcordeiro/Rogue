@@ -96,6 +96,25 @@ body{
   font-weight: 300;
 }
 
+.add-carrinho {
+  padding: 6px 8px;
+  color: rgb(0, 0, 0);
+  background-color: #47474715;
+  border: 1px solid rgb(65, 65, 65);
+  border-radius: 100px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 10px;
+}
+
+.add-carrinho:hover {
+  background-color: #4d4d4d49;
+  transition: background 0.5s;
+
+}
 /* -=-= FOOTER  =-=- */
 
 :root {

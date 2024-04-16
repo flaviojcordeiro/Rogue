@@ -56,16 +56,19 @@
         <img src="imagens/roupasaleatorias/mascroupa1.png" alt="Item 1">
         <h3>Bermuda moletom Beje</h3>
         <p>R$ 149,99</p>
+        <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
         <div class="card">
         <img src="imagens/roupasaleatorias/mascroupa2.png" alt="Item 2">
         <h3>Jaqueta USA Azul</h3>
         <p>R$ 249,99</p>
+        <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
         <div class="card">
         <img src="imagens/roupasaleatorias/mascroupa3.png" alt="Item 3">
         <h3>Polo Branca</h3>
         <p>R$ 99,99</p>
+        <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
     </div>
     </div>

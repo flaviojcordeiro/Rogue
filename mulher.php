@@ -56,16 +56,19 @@
         <img src="imagens/roupasaleatorias/femroupa1.png" alt="Item 1">
         <h3>Calça moletom Marrom</h3>
         <p>R$ 229,99</p>
+        <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
         <div class="card">
         <img src="imagens/roupasaleatorias/femroupa2.png" alt="Item 2">
         <h3>Saia esporte Preta</h3>
         <p>R$ 149,99</p>
+        <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
         <div class="card">
         <img src="imagens/roupasaleatorias/femroupa3.png" alt="Item 3">
         <h3>Jaqueta/Corta-vento Branca</h3>
         <p>R$ 399,99</p>
+        <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
     </div>
     </div>
