@@ -31,6 +31,9 @@
 </head>
 
 <body>
+    <section class="title-admin">
+        <h1>Gerenciamento de estoque</h1>
+    </section>
     <section class="container">
         <div class="w3-responsive w3-card-4">
             <table class="w3-table-all">
