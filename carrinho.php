@@ -50,6 +50,136 @@
 
 <body bgcolor="FFFEF8">
     <div class="content"></div>
+    <main>
+        <section class="carrinho-main">
+            <div class="carrinho-header">
+                <li class="nav-selecionado">Carrinho</li>
+                <li>></li>
+                <li>Pagamento</li>
+                <li>></li>
+                <li>Entrega</li>
+                <li>></li>
+                <li>Finalizar compra</li>
+            </div>
+        </section>
+        <section>
+            <div class="lista-pedidos">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p class="cart-title">Meu carrinho</p>
+            </div>
+            <div class="content-carrinho">
+                <section>
+                    <table class="table-carrinho">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product">
+                                        <img src="https://picsum.photos/100/120" alt="">
+                                        <div class="info">
+                                            <div class="title">Nome do produto</div>
+                                            <div class="category">Categoria</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>R$ 120</td>
+                                <td>
+                                    <div class="qty">
+                                        <button>-</button>
+                                        <span>2</span>
+                                        <button>+</button>
+                                    </div>
+                                </td>
+                                <td>R$ 240</td>
+                                <td>
+                                    <i class="fa-solid fa-xmark"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product">
+                                        <img src="https://picsum.photos/100/120" alt="">
+                                        <div class="info">
+                                            <div class="title">Nome do produto</div>
+                                            <div class="category">Categoria</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>R$ 120</td>
+                                <td>
+                                    <div class="qty">
+                                        <button>-</button>
+                                        <span>2</span>
+                                        <button>+</button>
+                                    </div>
+                                </td>
+                                <td>R$ 240</td>
+                                <td>
+                                    <i class="fa-solid fa-xmark"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product">
+                                        <img src="https://picsum.photos/100/120" alt="">
+                                        <div class="info">
+                                            <div class="title">Nome do produto</div>
+                                            <div class="category">Categoria</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>R$ 120</td>
+                                <td>
+                                    <div class="qty">
+                                        <button>-</button>
+                                        <span>2</span>
+                                        <button>+</button>
+                                    </div>
+                                </td>
+                                <td>R$ 240</td>
+                                <td>
+                                    <i class="fa-solid fa-xmark"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <aside>
+                    <div class="box">
+                        <header class="compra-resumo-title">Resumo da compra</header>
+                        <div class="info">
+                            <div><span>Sub-total</span><span>R$ 418</span></div>
+                            <div><span>Frete</span><span>Gratuito</span></div>
+                            <div><button class="cupom-desconto">Cupom de desconto<i class="fa-light fa-arrow-right"></i></button></div>
+                        </div>
+                        <footer>
+                            <span>Total</span>
+                            <span>R$ 418</span>
+                        </footer>
+                    </div>
+                    <button class="finalizar-compra">Finalizar compra</button>
+                </aside>
+            </div>
+
+        </section>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
