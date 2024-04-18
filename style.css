@@ -1178,28 +1178,34 @@ aside {
 
 /*Estilo da tabela admin*/
 .table {
+  display: table;
   width: 100%;
-  border: 1px solid #EEEEEE;
-}
-
-.table-header {
-  display: flex;
-  width: 100%;
-  background: #000;
-  padding: 18px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .table-row {
-  display: flex;
-  width: 100%;
-  padding: 18px 0;
+  display: table-row;
 }
 
 .table-data {
-  flex: 1 1 20%;
-  text-align: center;
+  display: table-cell;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle; 
+}
+.table-header {
+  background-color: #f2f2f2;
 }
 
+.table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-row:nth-child(odd) {
+  background-color: #fff;
+}
 .header__item {
   text-transform: uppercase;
 }
@@ -1233,4 +1239,7 @@ aside {
 
 .container{
   margin-top: 200px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }

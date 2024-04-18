@@ -32,66 +32,69 @@
 
 <body>
     <section class="container">
-        <div class="table">
-            <div class="table-header">
-                <div class="header__item"><a id="id" class="filter__link" href="#">ID</a></div>
-                <div class="header__item"><a id="nome" class="filter__link" href="#">Nome</a></div>
-                <div class="header__item"><a id="descricao" class="filter__link" href="#">Descrição</a></div>
-                <div class="header__item"><a id="categoria_id" class="filter__link" href="#">Categoria ID</a></div>
-                <div class="header__item"><a id="genero" class="filter__link" href="#">Gênero</a></div>
-                <div class="header__item"><a id="foto" class="filter__link" href="#">Foto</a></div>
-                <div class="header__item"><a id="preco" class="filter__link" href="#">Preço</a></div>
-                <div class="header__item"><a id="quantidade_estoque" class="filter__link" href="#">Quantidade em
-                        Estoque</a></div>
-            </div>
-            <div class="table-content">
-                <?php
-                error_reporting(E_ALL);
-                ini_set('display_errors', 1);
+        <div class="w3-responsive w3-card-4">
+            <table class="w3-table-all">
+                <thead>
+                    <tr class="table-header">
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Categoria ID</th>
+                        <th>Gênero</th>
+                        <th>Foto</th>
+                        <th>Preço</th>
+                        <th>Quantidade em Estoque</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    error_reporting(E_ALL);
+                    ini_set('display_errors', 1);
 
-                $hostname = "localhost:3306";
-                $username = "root";
-                $password = "PUC@1234";
-                $database = "rogue";
+                    $hostname = "localhost:3306";
+                    $username = "root";
+                    $password = "PUC@1234";
+                    $database = "rogue";
 
-                $conn = new mysqli($hostname, $username, $password, $database);
+                    $conn = new mysqli($hostname, $username, $password, $database);
 
-                // Verifica conexão
-                if ($conn->connect_error) {
-                    die("Falha na conexão com o Banco de Dados: " . $conn->connect_error);
-                }
-
-                // Faz Select na Base de Dados
-                $sql = "SELECT id, nome, descricao, categoria_id, genero, foto, preco, quantidade_estoque FROM roupas";
-
-                if ($result = $conn->query($sql)) {
-                    if ($result->num_rows > 0) {
-                        // Apresenta cada linha da tabela
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<div class='table-row'>";
-                            echo "<div class='table-data'>" . $row["id"] . "</div>";
-                            echo "<div class='table-data'>" . $row["nome"] . "</div>";
-                            echo "<div class='table-data'>" . $row["descricao"] . "</div>";
-                            echo "<div class='table-data'>" . $row["categoria_id"] . "</div>";
-                            echo "<div class='table-data'>" . $row["genero"] . "</div>";
-                            echo "<div class='table-data'>" . $row["foto"] . "</div>";
-                            echo "<div class='table-data'>" . $row["preco"] . "</div>";
-                            echo "<div class='table-data'>" . $row["quantidade_estoque"] . "</div>";
-                            echo "</div>";
-                        }
-                    } else {
-                        echo "<div class='table-row'><div class='table-data' colspan='8'>0 resultados</div></div>";
+                    // Verifica conexão
+                    if ($conn->connect_error) {
+                        die("Falha na conexão com o Banco de Dados: " . $conn->connect_error);
                     }
 
-                    $result->free();
-                } else {
-                    echo "Erro na execução da consulta: " . $conn->error;
-                }
+                    // Faz Select na Base de Dados
+                    $sql = "SELECT id, nome, descricao, categoria_id, genero, foto, preco, quantidade_estoque FROM roupas";
 
-                // Fecha a conexão
-                $conn->close();
-                ?>
-            </div>
+                    if ($result = $conn->query($sql)) {
+                        if ($result->num_rows > 0) {
+                            // Apresenta cada linha da tabela
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr class='table-row'>";
+                                echo "<td>" . $row["id"] . "</td>";
+                                echo "<td>" . $row["nome"] . "</td>";
+                                echo "<td>" . $row["descricao"] . "</td>";
+                                echo "<td>" . $row["categoria_id"] . "</td>";
+                                echo "<td>" . $row["genero"] . "</td>";
+                                echo "<td>" . $row["foto"] . "</td>";
+                                echo "<td>" . $row["preco"] . "</td>";
+                                echo "<td>" . $row["quantidade_estoque"] . "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='8'>0 resultados</td></tr>";
+                        }
+
+                        $result->free();
+                    } else {
+                        echo "<tr><td colspan='8'>Erro na execução da consulta: " . $conn->error . "</td></tr>";
+                    }
+
+                    // Fecha a conexão
+                    $conn->close();
+                    ?>
+                </tbody>
+            </table>
         </div>
     </section>
 </body>
