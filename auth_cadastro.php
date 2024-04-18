@@ -1,5 +1,15 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+    $hostname = "localhost:3306";
+    $username = "root"; 
+    $password = "PUC@1234"; 
+    $database = "rogue";
+
+    $conn = new mysqli($hostname, $username, $password, $database);
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST['nome']);
@@ -10,8 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($nome) && !empty($email) && !empty($senha) && !empty($data_nascimento)) {
         // Hash da senha
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-        $conn = new mysqli('localhost', 'root', '', 'rogue');
 
         if ($conn->connect_error) {
             die("Erro ao conectar ao banco de dados: " . $conn->connect_error);

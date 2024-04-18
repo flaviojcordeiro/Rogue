@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         var_dump($_POST);
 
-        $conn = new mysqli('localhost', 'root', '', 'rogue');
+        $conn = new mysqli('localhost', 'root', 'PUC@1234', 'rogue');
 
         if ($conn->connect_error) {
             die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
