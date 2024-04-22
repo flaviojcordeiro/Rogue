@@ -16,6 +16,7 @@
         <div class="nav-items">
             <img src="imagens/roguelogobranca.png" id="logokkjk">
             <ul>
+                <li><a href="adminreg.php">voltar</a></li>
                 <li><a href="index.php">home</a></li>
                 <li><a href="guardaroupas.php">guarda-roupa</a></li>
                 <li><a href="homem.php">masculino</a></li>
@@ -30,5 +31,54 @@
         </div>
     </nav>
 </head>
+
+<body>
+    <section class="adicionar-titulo">
+        <h1>Excluir do estoque</h1>
+    </section>
+    <section class="phpconnection">
+        <?php
+        // Verifica se o id foi recebido via GET
+        if (isset($_GET['id'])) {
+            // Obtém o id da roupa a ser excluída
+            $id = $_GET['id'];
+
+            $hostname = "localhost:3306";
+            $username = "root";
+            $password = "PUC@1234";
+            $database = "rogue";
+
+            // Cria conexão
+            $conn = mysqli_connect($hostname, $username, $password, $database);
+
+            // Verifica conexão
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            // Prepara a declaração SQL
+            $delete_roupa_sql = "DELETE FROM roupas WHERE id =?";
+            $delete_roupa_stmt = mysqli_prepare($conn, $delete_roupa_sql);
+
+            // Vincula o parâmetro à declaração preparada
+            mysqli_stmt_bind_param($delete_roupa_stmt, "i", $id);
+
+            // Executa a declaração preparada
+            if (mysqli_stmt_execute($delete_roupa_stmt)) {
+                echo "<h1 id=centralizarmensagemsucesso>Roupa excluída com sucesso!</h1>";
+            } else {
+                echo "<p>Erro executando DELETE: " . mysqli_error($conn) . "</p>";
+            }
+
+            // Fecha a declaração preparada
+            mysqli_stmt_close($delete_roupa_stmt);
+            mysqli_close($conn);
+        } else {
+            echo "<p>ID não fornecido para exclusão.</p>";
+            echo "<p>ID recebido: " . $id . "</p>";
+        }
+        ?>
+    </section>
+</body>
 
 </html>
