@@ -40,7 +40,7 @@ if (isset($_POST['produto_id'])) {
     $stmt->close();
     $conexao->close();
 
-    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    header("Location: carrinho.php");
 } else {
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);

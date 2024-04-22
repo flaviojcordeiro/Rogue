@@ -38,6 +38,7 @@
     </section>
     <section class="phpinserction">
         <?php
+        session_start();
         
         $hostname = "localhost:3306";
         $username = "root";

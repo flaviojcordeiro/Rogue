@@ -37,6 +37,7 @@
         <h1>Editar item</h1>
     </section>
     <?php
+    session_start();
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 

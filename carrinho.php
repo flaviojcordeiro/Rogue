@@ -8,7 +8,7 @@ if (!isset($_SESSION['nome'])) {
     exit;
 }
 
-$conexao = new mysqli("localhost", "root", "PUC@1234", "rogue");
+$conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
 
 if ($conexao->connect_error) {
     die("Erro de conexão: " . $conexao->connect_error);
