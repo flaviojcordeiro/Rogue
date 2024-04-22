@@ -77,6 +77,7 @@
             $sql = "INSERT INTO roupas (id, nome, descricao, categoria_id, genero, preco, quantidade_estoque) 
              VALUES ('$id', '$nome', '$descricao', '$categoria_id', '$genero', '$preco', '$quantidade_estoque')";
 
+
             if (mysqli_query($conn, $sql)) {
                 echo "<h1 id=centralizarmensagemsucesso>Roupa adicionada com sucesso!</h1>";
                 echo "</div>";
@@ -91,7 +92,7 @@
         ?>
     </section>
     <section class='form-adicionar-estoque'>
-        <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
             <label><b>ID</b></label>
             <input class="input-field" name="id" type="number" required>
 

@@ -47,7 +47,6 @@
                         <th class="table-header text-center" style="width: 20%; padding: 20px;">Descrição</th>
                         <th class="table-header text-center" style="width: 20%; padding: 20px;">Categoria ID</th>
                         <th class="table-header text-center" style="width: 20%; padding: 20px;">Gênero</th>
-                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Foto</th>
                         <th class="table-header text-center" style="width: 20%; padding: 20px;">Preço</th>
                         <th class="table-header text-center" style="width: 20%; padding: 20px;">Quantidade em Estoque
                         </th>
@@ -81,7 +80,6 @@
                                 echo "<td class='text-center'>". $row["descricao"]. "</td>";
                                 echo "<td class='text-center'>". $row["categoria_id"]. "</td>";
                                 echo "<td class='text-center'>". $row["genero"]. "</td>";
-                                echo "<td class='text-center'>". $row["foto"]. "</td>";
                                 echo "<td class='text-center'>". $row["preco"]. "</td>";
                                 echo "<td class='text-center'>". $row["quantidade_estoque"]. "</td>";
                                 echo "<td class='text-center'>";
