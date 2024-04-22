@@ -1,11 +1,31 @@
 <?php
-session_start(); 
+session_start();
 
 if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
+    exit;
 }
-?>
 
+$conexao = new mysqli("localhost", "root", "PUC@1234", "rogue");
+
+if ($conexao->connect_error) {
+    die("Erro de conexão: " . $conexao->connect_error);
+}
+
+$stmt = $conexao->prepare("SELECT r.id, r.nome, r.descricao, r.foto, r.preco, c.quantidade FROM carrinho c JOIN roupas r ON c.produto_id = r.id WHERE c.usuario_id = ?");
+$stmt->bind_param("i", $_SESSION['id']);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $produtos_carrinho = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    $produtos_carrinho = array();
+}
+
+$stmt->close();
+$conexao->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,46 +39,31 @@ if (!isset($_SESSION['nome'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
-    <title>rogue</title>
-    <?php session_start(); ?>
-    <?php if (isset($_SESSION['nome'])) : ?>
-        <nav class="navbar">
-            <div class="nav-items">
-                <img src="imagens/roguelogobranca.png" id="logokkjk">
-                <ul>
-                    <li><a href="index.php">home</a></li>
-                    <li><a href="guardaroupas.php">guarda-roupa</a></li>
-                    <li><a href="homem.php">masculino</a></li>
-                    <li><a href="mulher.php">feminino</a></li>
-                    <li><a href="quemsomos.php">quem somos</a></li>
-                    <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                    <li><a href="editar_usuario.php">Editar Informações</a></li>
-                    <li class="logo">
-                        <span><?php echo $_SESSION['nome']; ?></span>
-                        <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    <?php else : ?>
-        <nav class="navbar">
-            <div class="nav-items">
-                <img src="imagens/roguelogobranca.png" id="logokkjk">
-                <ul>
-                    <li><a href="index.php">home</a></li>
-                    <li><a href="guardaroupas.php">guarda-roupa</a></li>
-                    <li><a href="homem.php">masculino</a></li>
-                    <li><a href="mulher.php">feminino</a></li>
-                    <li><a href="quemsomos.php">quem somos</a></li>
-                    <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                    <li class="carrinho"><a href="login.php"><img src="imagens/loginicon.png" alt="logout"></a></li>
-                </ul>
-            </div>
-        </nav>
-    <?php endif; ?>
+    <title>Carrinho</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body bgcolor="FFFEF8">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-items">
+            <img src="imagens/roguelogobranca.png" id="logokkjk">
+            <ul>
+                <li><a href="index.php">home</a></li>
+                <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                <li><a href="homem.php">masculino</a></li>
+                <li><a href="mulher.php">feminino</a></li>
+                <li><a href="quemsomos.php">quem somos</a></li>
+                <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="Carrinho"></a></li>
+                <li><a href="editar_usuario.php">editar informações</a></li>
+                <li class="logo">
+                    <span><?php echo $_SESSION['nome']; ?></span>
+                    <a href="logout.php"><img src="imagens/logouticon.png" alt="Logout"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="content"></div>
     <main>
         <section class="carrinho-main">
@@ -90,75 +95,31 @@ if (!isset($_SESSION['nome'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="product">
-                                        <img src="https://picsum.photos/100/120" alt="">
-                                        <div class="info">
-                                            <div class="title">Nome do produto</div>
-                                            <div class="category">Categoria</div>
+                            <?php foreach ($produtos_carrinho as $produto) : ?>
+                                <tr>
+                                    <td>
+                                        <div class="produtocarrinho">
+                                            <img src= <?php echo $produto['foto']; ?>
+                                            <?php echo $produto['id']; ?> alt="<?php echo $produto['nome']; ?>">
+                                            <div class="info">
+                                                <div class="title"><?php echo $produto['nome']; ?></div>
+                                                <div class="category"><?php echo $produto['descricao']; ?></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>R$ 120</td>
-                                <td>
-                                    <div class="qty">
-                                        <button>-</button>
-                                        <span>2</span>
-                                        <button>+</button>
-                                    </div>
-                                </td>
-                                <td>R$ 240</td>
-                                <td>
-                                    <i class="fa-solid fa-xmark"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="product">
-                                        <img src="https://picsum.photos/100/120" alt="">
-                                        <div class="info">
-                                            <div class="title">Nome do produto</div>
-                                            <div class="category">Categoria</div>
+                                    </td>
+                                    <td>R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></td>
+                                    <td> <?php echo $produto['quantidade']; ?> 
                                         </div>
-                                    </div>
-                                </td>
-                                <td>R$ 120</td>
-                                <td>
-                                    <div class="qty">
-                                        <button>-</button>
-                                        <span>2</span>
-                                        <button>+</button>
-                                    </div>
-                                </td>
-                                <td>R$ 240</td>
-                                <td>
-                                    <i class="fa-solid fa-xmark"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="product">
-                                        <img src="https://picsum.photos/100/120" alt="">
-                                        <div class="info">
-                                            <div class="title">Nome do produto</div>
-                                            <div class="category">Categoria</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>R$ 120</td>
-                                <td>
-                                    <div class="qty">
-                                        <button>-</button>
-                                        <span>2</span>
-                                        <button>+</button>
-                                    </div>
-                                </td>
-                                <td>R$ 240</td>
-                                <td>
-                                    <i class="fa-solid fa-xmark"></i>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td>R$ <?php echo number_format($produto['preco'] * $produto['quantidade'], 2, ',', '.'); ?></td>
+                                    <td>
+                                        <form class="remover-form" method="post" action="rem_carrinho.php">
+                                            <input type="hidden" name="produto_id" value="<?php echo $produto['id']; ?>">
+                                            <button type="submit" class="remover-btn"><i class="fa-solid fa-xmark"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </section>
@@ -166,13 +127,12 @@ if (!isset($_SESSION['nome'])) {
                     <div class="box">
                         <header class="compra-resumo-title">Resumo da compra</header>
                         <div class="info">
-                            <div><span>Sub-total</span><span>R$ 418</span></div>
+                            <div><span>Sub-total</span><span>R$ <?php echo calcularSubtotal($produtos_carrinho); ?></span></div>
                             <div><span>Frete</span><span>Gratuito</span></div>
-                            <div><button class="cupom-desconto">Cupom de desconto<i class="fa-light fa-arrow-right"></i></button></div>
                         </div>
                         <footer>
                             <span>Total</span>
-                            <span>R$ 418</span>
+                            <span>R$ <?php echo calcularSubtotal($produtos_carrinho); ?></span>
                         </footer>
                     </div>
                     <button class="finalizar-compra">Finalizar compra</button>
@@ -181,15 +141,7 @@ if (!isset($_SESSION['nome'])) {
 
         </section>
     </main>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
@@ -260,5 +212,43 @@ if (!isset($_SESSION['nome'])) {
             </div>
         </div>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            $(".remover-form").submit(function(e) {
+                e.preventDefault();
+
+                var form = $(this);
+                var formData = form.serialize();
+
+                $.ajax({
+                    type: "POST",
+                    url: form.attr("action"),
+                    data: formData,
+                    success: function(response) {
+                        alert(response);
+                        location.reload(); // Recarrega a página após remover o produto do carrinho
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Erro ao remover produto do carrinho. Por favor, tente novamente.");
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
+
+<?php
+// Função para calcular o subtotal dos produtos no carrinho
+function calcularSubtotal($produtos_carrinho)
+{
+    $subtotal = 0;
+    foreach ($produtos_carrinho as $produto) {
+        $subtotal += $produto['preco'] * $produto['quantidade'];
+    }
+    return number_format($subtotal, 2, ',', '.');
+}
+?>
