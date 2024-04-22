@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,35 @@
 </head>
 
 <body bgcolor="FFFEF8">
-    <div class="content"></div>
+    <div class="contentguardaroupas">
+        <div class="guardaroupas">
+        <h2>Recomendação de Produtos</h2>
+        <form action="guardaroupas.php" method="post">
+            <h3>Escolha sua preferência:</h3><br>
+            <input type="radio" id="roupas-claras" name="preferencia" value="1">
+            <label for="roupas-claras">Roupas Claras</label><br>
+            
+            <input type="radio" id="roupas-escuras" name="preferencia" value="2">
+            <label for="roupas-escuras">Roupas Escuras</label><br>
+            
+            <input type="radio" id="skate" name="preferencia" value="3">
+            <label for="skate">Skate</label><br>
+            
+            <input type="radio" id="casual" name="preferencia" value="4">
+            <label for="casual">Casual</label><br>
+            
+            <input type="radio" id="esportiva" name="preferencia" value="5">
+            <label for="esportiva">Esportiva</label><br><br>
+
+            <select name="genero" id="genero">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+        </div>
+    </div>
+
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
