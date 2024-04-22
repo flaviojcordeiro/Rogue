@@ -1385,3 +1385,11 @@ aside {
   background-color: #50575f;
 }
 
+.produtocarrinho img{
+  width: 90px;
+  height: auto;
+}
+
+.produtocarrinho {
+  display: flex;
+}

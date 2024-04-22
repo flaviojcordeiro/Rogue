@@ -1,3 +1,38 @@
+<?php
+session_start();
+
+// Conexão com o banco de dados
+$conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
+
+// Verifica se houve erro na conexão
+if ($conexao->connect_error) {
+    die("Erro de conexão: " . $conexao->connect_error);
+}
+
+// Consulta SQL para selecionar os produtos
+$sql = "SELECT * FROM roupas LIMIT 4"; // Limite de 4 produtos, ajuste conforme necessário
+
+// Executa a consulta
+$resultado = $conexao->query($sql);
+
+// Verifica se houve resultados
+if ($resultado->num_rows > 0) {
+    // Inicializa a variável $produtos como um array
+    $produtos = array();
+
+    // Percorre os resultados da consulta e armazena em $produtos
+    while ($row = $resultado->fetch_assoc()) {
+        $produtos[] = $row;
+    }
+} else {
+    // Se não houver resultados, define $produtos como um array vazio
+    $produtos = array();
+}
+
+// Fecha a conexão com o banco de dados
+$conexao->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +45,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
-    <title>rogue</title>
+    <title>Rogue</title>
 </head>
 
 <body bgcolor="FFFEF8">
-<?php session_start(); ?>
+    <!-- Navbar -->
     <?php if (isset($_SESSION['nome'])) : ?>
         <nav class="navbar">
             <div class="nav-items">
@@ -53,24 +88,33 @@
     <div class="content">
         <h1 class=titulocard>Itens em Alta</h1>
         <div class="card-container">
-            <div class="card">
-                <img src="imagens/roupasaleatorias/femroupa1.png" alt="Item 1">
-                <h3>Calça moletom Marrom</h3>
-                <p>R$ 229,99</p>
-                <div class="add-carrinho">Adicionar ao carrinho</div>
-            </div>
-            <div class="card">
-                <img src="imagens/roupasaleatorias/mascroupa1.png" alt="Item 2">
-                <h3>Bermuda moletom Beje</h3>
-                <p>R$ 149,99</p>
-                <div class="add-carrinho">Adicionar ao carrinho</div>
-            </div>
-            <div class="card">
-                <img src="imagens/roupasaleatorias/mascroupa3.png" alt="Item 3">
-                <h3>Polo Branca</h3>
-                <p>R$ 99,99</p>
-                <div class="add-carrinho">Adicionar ao carrinho</div>
-            </div>
+            <?php
+            // Verifica se há produtos para exibir
+            if (!empty($produtos)) {
+                // Loop para exibir cada produto
+                foreach ($produtos as $produto) {
+                    // Extrai os dados do produto
+                    $produto_id = $produto['id'];
+                    $nome_produto = $produto['nome'];
+                    $descricao_produto = $produto['descricao'];
+                    $preco_produto = $produto['preco'];
+                    $foto_produto = $produto['foto'];
+
+                    echo '<div class="card">';
+                    echo '<img src="' . $foto_produto . '" alt="' . $nome_produto . '">';
+                    echo '<h3>' . $nome_produto . '</h3>';
+                    echo '<p>R$ ' . $preco_produto . '</p>';
+                    echo '<form action="add_carrinho.php" method="post">';
+                    echo '<input type="hidden" name="produto_id" value="' . $produto_id . '">';
+                    echo '<button type="submit" name="add_to_cart" class="add-carrinho">Adicionar ao carrinho</button>';
+                    echo '</form>';
+                    echo '</div>';
+                }
+            } else {
+    
+                echo '<p>Nenhum produto disponível no momento.</p>';
+            }
+            ?>
         </div>
     </div>
 

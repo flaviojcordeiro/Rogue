@@ -20,7 +20,7 @@ CREATE TABLE roupas (
     descricao TEXT,
     categoria_id INT,
     genero ENUM('masculino', 'feminino', 'unissex') NOT NULL,
-    foto LONGBLOB NOT NULL, 
+    foto VARCHAR(300) NOT NULL, 
     preco DECIMAL(10, 2) NOT NULL,
     quantidade_estoque INT NOT NULL,
     FOREIGN KEY (categoria_id) REFERENCES categorias_roupas(id)
@@ -33,4 +33,13 @@ CREATE TABLE roupas_likes (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (roupa_id) REFERENCES roupas(id),
     PRIMARY KEY (usuario_id, roupa_id)
+);
+
+CREATE TABLE carrinho (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    produto_id INT,
+    quantidade INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (produto_id) REFERENCES roupas(id)
 );
