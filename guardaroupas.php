@@ -19,10 +19,11 @@
                 <ul>
                     <li><a href="index.php">home</a></li>
                     <li><a href="guardaroupas.php">guarda-roupa</a></li>
-                    <li><a href="homem.php">feminino</a></li>
-                    <li><a href="mulher.php">masculino</a></li>
+                    <li><a href="homem.php">masculino</a></li>
+                    <li><a href="mulher.php">feminino</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                    <li><a href="editar_usuario.php">editar informações</a></li>
                     <li class="logo">
                         <span><?php echo $_SESSION['nome']; ?></span>
                         <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>

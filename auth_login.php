@@ -37,10 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 exit();
             } else {
-                echo "Senha incorreta. Tente novamente.";
+                header("Location: login.php");
             }
         } else {
-            echo "Nenhum usuário encontrado com o e-mail fornecido.";
+            header("Location: login.php");
         }
 
         $stmt->close();

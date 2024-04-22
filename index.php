@@ -14,7 +14,7 @@
 </head>
 
 <body bgcolor="FFFEF8">
-    <?php session_start(); ?>
+<?php session_start(); ?>
     <?php if (isset($_SESSION['nome'])) : ?>
         <nav class="navbar">
             <div class="nav-items">
@@ -26,6 +26,7 @@
                     <li><a href="mulher.php">feminino</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                    <li><a href="editar_usuario.php">editar informações</a></li>
                     <li class="logo">
                         <span><?php echo $_SESSION['nome']; ?></span>
                         <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>
@@ -49,7 +50,6 @@
             </div>
         </nav>
     <?php endif; ?>
-
     <div class="content">
         <h1 class=titulocard>Itens em Alta</h1>
         <div class="card-container">

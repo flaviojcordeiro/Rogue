@@ -37,6 +37,10 @@
             <input type="text" id="name" name="nome"><br>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email"><br>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf"><br>
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco"><br>
             <label for="birthdate">Data de Nascimento:</label>
             <input type="date" id="birthdate" name="data_nascimento"><br>
             <label for="password">Senha:</label>
