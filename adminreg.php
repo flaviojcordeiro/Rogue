@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>rogue</title>
     <nav class="navbar">
         <div class="nav-items">
             <img src="imagens/roguelogobranca.png" id="logokkjk">
             <ul>
+                <li><a href="adicionarCategoria.php">adicionar categoria de roupa</a></li>
+                <li><a href="adicionarEstoque.php">adicionar ao estoque</a></li>
                 <li><a href="index.php">home</a></li>
                 <li><a href="guardaroupas.php">guarda-roupa</a></li>
                 <li><a href="homem.php">masculino</a></li>
@@ -35,18 +38,20 @@
         <h1>Gerenciamento de estoque</h1>
     </section>
     <section class="container">
-        <div class="w3-responsive w3-card-4">
+        <div class="w3-responsive w3-card-4" style="width: 100%;">
             <table class="w3-table-all">
                 <thead>
-                    <tr class="table-header">
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Categoria ID</th>
-                        <th>Gênero</th>
-                        <th>Foto</th>
-                        <th>Preço</th>
-                        <th>Quantidade em Estoque</th>
+                    <tr>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">ID</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Nome</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Descrição</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Categoria ID</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Gênero</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Foto</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Preço</th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Quantidade em Estoque
+                        </th>
+                        <th class="table-header text-center" style="width: 20%; padding: 20px;">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,39 +66,39 @@
 
                     $conn = new mysqli($hostname, $username, $password, $database);
 
-                    // Verifica conexão
                     if ($conn->connect_error) {
                         die("Falha na conexão com o Banco de Dados: " . $conn->connect_error);
                     }
 
-                    // Faz Select na Base de Dados
                     $sql = "SELECT id, nome, descricao, categoria_id, genero, foto, preco, quantidade_estoque FROM roupas";
 
                     if ($result = $conn->query($sql)) {
                         if ($result->num_rows > 0) {
-                            // Apresenta cada linha da tabela
                             while ($row = $result->fetch_assoc()) {
-                                echo "<tr class='table-row'>";
-                                echo "<td>" . $row["id"] . "</td>";
-                                echo "<td>" . $row["nome"] . "</td>";
-                                echo "<td>" . $row["descricao"] . "</td>";
-                                echo "<td>" . $row["categoria_id"] . "</td>";
-                                echo "<td>" . $row["genero"] . "</td>";
-                                echo "<td>" . $row["foto"] . "</td>";
-                                echo "<td>" . $row["preco"] . "</td>";
-                                echo "<td>" . $row["quantidade_estoque"] . "</td>";
+                                echo "<tr>";
+                                echo "<td class='text-center'>". $row["id"]. "</td>";
+                                echo "<td class='text-center'>". $row["nome"]. "</td>";
+                                echo "<td class='text-center'>". $row["descricao"]. "</td>";
+                                echo "<td class='text-center'>". $row["categoria_id"]. "</td>";
+                                echo "<td class='text-center'>". $row["genero"]. "</td>";
+                                echo "<td class='text-center'>". $row["foto"]. "</td>";
+                                echo "<td class='text-center'>". $row["preco"]. "</td>";
+                                echo "<td class='text-center'>". $row["quantidade_estoque"]. "</td>";
+                                echo "<td class='text-center'>";
+                                echo "<a href='editarestoque.php?id=". $row["id"]. "'><i class='fas fa-edit'></i></a>";
+                                echo "<a href='excluirestoque.php?id=". $row["id"]. "'><i class='fas fa-trash-alt'></i></a>";
+                                echo "</td>";
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='8'>0 resultados</td></tr>";
+                            echo "<tr><td colspan='9'>0 resultados</td></tr>";
                         }
 
                         $result->free();
                     } else {
-                        echo "<tr><td colspan='8'>Erro na execução da consulta: " . $conn->error . "</td></tr>";
+                        echo "<tr><td colspan='9'>Erro na execução da consulta: " . $conn->error . "</td></tr>";
                     }
 
-                    // Fecha a conexão
                     $conn->close();
                     ?>
                 </tbody>

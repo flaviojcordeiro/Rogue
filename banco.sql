@@ -18,7 +18,7 @@ CREATE TABLE roupas (
     descricao TEXT,
     categoria_id INT,
     genero ENUM('masculino', 'feminino', 'unissex') NOT NULL,
-    foto VARCHAR(255), 
+    foto LONGBLOB NOT NULL, 
     preco DECIMAL(10, 2) NOT NULL,
     quantidade_estoque INT NOT NULL,
     FOREIGN KEY (categoria_id) REFERENCES categorias_roupas(id)
