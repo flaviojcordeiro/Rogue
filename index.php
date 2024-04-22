@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['nome'])) {
-    header("Location: login.php");
-    exit;
-}
-
 // Conexão com o banco de dados
 $conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
 
