@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,7 @@
     </section>
     <section class="phpinserction">
         <?php
-        session_start();
+
         
         $hostname = "localhost:3306";
         $username = "root";

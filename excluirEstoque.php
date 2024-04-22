@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,6 @@
     </section>
     <section class="phpconnection">
         <?php
-        session_start();
         // Verifica se o id foi recebido via GET
         if (isset($_GET['id'])) {
             // Obtém o id da roupa a ser excluída
