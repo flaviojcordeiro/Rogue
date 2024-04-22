@@ -16,6 +16,7 @@
         <div class="nav-items">
             <img src="imagens/roguelogobranca.png" id="logokkjk">
             <ul>
+                <li><a href="adminreg.php">voltar</a></li>
                 <li><a href="index.php">home</a></li>
                 <li><a href="guardaroupas.php">guarda-roupa</a></li>
                 <li><a href="homem.php">masculino</a></li>
@@ -30,5 +31,90 @@
         </div>
     </nav>
 </head>
+
+<body>
+    <section class="adicionar-titulo">
+        <h1>Editar item</h1>
+    </section>
+    <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    $hostname = "localhost:3306";
+    $username = "root";
+    $password = "PUC@1234";
+    $database = "rogue";
+
+    // Cria conexao
+    $conn = mysqli_connect($hostname, $username, $password, $database);
+
+    // Checa conexao
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
+        $id = $_POST['id'];
+
+        $nome = isset($_POST['nome']) ? $_POST['nome'] : '';
+        $descricao = isset($_POST['descricao']) ? $_POST['descricao'] : '';
+        $categoria_id = isset($_POST['categoria_id']) ? $_POST['categoria_id'] : '';
+        $genero = isset($_POST['genero']) ? $_POST['genero'] : '';
+        $preco = isset($_POST['preco']) ? $_POST['preco'] : '';
+        $quantidade_estoque = isset($_POST['quantidade_estoque']) ? $_POST['quantidade_estoque'] : '';
+
+        // Prepara o codigo sql para update
+        $update_roupa_sql = "UPDATE roupas SET nome=?, descricao=?, categoria_id=?, genero=?, preco=?, quantidade_estoque=? WHERE id=?";
+        $update_roupa_stmt = mysqli_prepare($conn, $update_roupa_sql);
+
+        mysqli_stmt_bind_param($update_roupa_stmt, "ssssssi", $nome, $descricao, $categoria_id, $genero, $preco, $quantidade_estoque, $id);
+
+        // Executa o statement com os valores
+        if (mysqli_stmt_execute($update_roupa_stmt)) {
+            echo "<h1 id=centralizarmensagemsucesso>Roupa atualizada com sucesso!</h1>";
+        } else {
+            echo "<p>Erro executando UPDATE: " . mysqli_error($conn) . "</p>";
+        }
+
+        // Fecha o statement
+        mysqli_stmt_close($update_roupa_stmt);
+        mysqli_close($conn);
+    } else {
+        ;
+    }
+    ?>
+
+    <section class='form-adicionar-estoque'>
+        <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <label><b>ID</b></label>
+            <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
+            <input class="input-field" name="id_display" type="text"
+                value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>" disabled>
+
+            <label><b>Nome</b></label>
+            <input class="input-field" name="nome" type="text" required>
+
+            <label><b>Descrição</b></label>
+            <input class="input-field" name="descricao" type="text" required>
+
+            <label><b>Categoria ID</b></label>
+            <input class="input-field" name="categoria_id" type="number" required>
+
+            <label><b>Gênero</b></label>
+            <input class="input-field" name="genero" type="text" required>
+
+            <label><b>Preço</b></label>
+            <input class="input-field" name="preco" type="number" step="0.01" min="0" required>
+
+            <label><b>Quantidade em Estoque</b></label>
+            <input class="input-field" name="quantidade_estoque" type="number" min="0" required>
+
+            <p>
+                <input type="submit" value="Editar Roupa" class="submit-btn">
+                <input type="button" value="Cancelar" class="cancel-btn" onclick="window.location.href='adminreg.php'">
+            </p>
+        </form>
+    </section>
+</body>
 
 </html>
