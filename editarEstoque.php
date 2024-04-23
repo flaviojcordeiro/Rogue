@@ -65,13 +65,14 @@
         $categoria_id = isset($_POST['categoria_id']) ? $_POST['categoria_id'] : '';
         $genero = isset($_POST['genero']) ? $_POST['genero'] : '';
         $preco = isset($_POST['preco']) ? $_POST['preco'] : '';
+        $foto = isset($_POST['foto']) ? $_POST['foto'] : '';
         $quantidade_estoque = isset($_POST['quantidade_estoque']) ? $_POST['quantidade_estoque'] : '';
 
         // Prepara o codigo sql para update
-        $update_roupa_sql = "UPDATE roupas SET nome=?, descricao=?, categoria_id=?, genero=?, preco=?, quantidade_estoque=? WHERE id=?";
+        $update_roupa_sql = "UPDATE roupas SET nome=?, descricao=?, categoria_id=?, genero=?, preco=?, foto=? quantidade_estoque=? WHERE id=?";
         $update_roupa_stmt = mysqli_prepare($conn, $update_roupa_sql);
 
-        mysqli_stmt_bind_param($update_roupa_stmt, "ssssssi", $nome, $descricao, $categoria_id, $genero, $preco, $quantidade_estoque, $id);
+        mysqli_stmt_bind_param($update_roupa_stmt, "sssssssi", $nome, $descricao, $categoria_id, $genero, $preco, $quantidade_estoque, $id);
 
         // Executa o statement com os valores
         if (mysqli_stmt_execute($update_roupa_stmt)) {
@@ -109,6 +110,9 @@
 
             <label><b>Preço</b></label>
             <input class="input-field" name="preco" type="number" step="0.01" min="0" required>
+
+            <label><b>Foto(insira a url da foto)</b></label>
+            <input class="input-field" name="foto" type="text" required>
 
             <label><b>Quantidade em Estoque</b></label>
             <input class="input-field" name="quantidade_estoque" type="number" min="0" required>
