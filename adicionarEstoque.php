@@ -61,6 +61,7 @@
             $nome = $_POST['nome'];
             $descricao = $_POST['descricao'];
             $categoria_id = $_POST['categoria_id'];
+            $foto = $_POST['foto'];
             $genero = $_POST['genero'];
             $preco = $_POST['preco'];
             $quantidade_estoque = $_POST['quantidade_estoque'];
@@ -77,8 +78,8 @@
             mysqli_query($conn, 'SET character_set_results=utf8');
 
             // Faz INSERT na Base de Dados
-            $sql = "INSERT INTO roupas (id, nome, descricao, categoria_id, genero, preco, quantidade_estoque) 
-             VALUES ('$id', '$nome', '$descricao', '$categoria_id', '$genero', '$preco', '$quantidade_estoque')";
+            $sql = "INSERT INTO roupas (id, nome, descricao, categoria_id, genero, preco, foto, quantidade_estoque) 
+             VALUES ('$id', '$nome', '$descricao', '$categoria_id', '$genero', '$preco', '$foto', '$quantidade_estoque')";
 
 
             if (mysqli_query($conn, $sql)) {
@@ -113,6 +114,9 @@
 
             <label><b>Preço</b></label>
             <input class="input-field" name="preco" type="number" step="0.01" min="0" required>
+
+            <label><b>Foto(insira o url da foto)</b></label>
+            <input class="input-field" name="foto" type="text" required>
 
             <label><b>Quantidade em Estoque</b></label>
             <input class="input-field" name="quantidade_estoque" type="number" min="0" required>
