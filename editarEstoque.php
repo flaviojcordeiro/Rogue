@@ -69,7 +69,7 @@
         $quantidade_estoque = isset($_POST['quantidade_estoque']) ? $_POST['quantidade_estoque'] : '';
 
         // Prepara o codigo sql para update
-        $update_roupa_sql = "UPDATE roupas SET nome=?, descricao=?, categoria_id=?, genero=?, preco=?, foto=? quantidade_estoque=? WHERE id=?";
+        $update_roupa_sql = "UPDATE roupas SET nome=?, descricao=?, categoria_id=?, genero=?, preco=?, foto=?, quantidade_estoque=? WHERE id=?";
         $update_roupa_stmt = mysqli_prepare($conn, $update_roupa_sql);
 
         mysqli_stmt_bind_param($update_roupa_stmt, "sssssssi", $nome, $descricao, $categoria_id, $genero, $preco, $foto, $quantidade_estoque, $id);
