@@ -37,6 +37,9 @@ $conexao->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Rogue</title>
 </head>
 
@@ -56,6 +59,21 @@ $conexao->close();
                     <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
                 </ul>
             </div>
+            <div class="nav-items-mini">
+                    <ul>
+                        <li><a href="index.php">home</a></li>
+                        <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                        <li><a href="homem.php">masculino</a></li>
+                        <li><a href="mulher.php">feminino</a></li>
+                        <li><a href="quemsomos.php">quem somos</a></li>
+                        <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                        <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
+                        <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
+                    </ul>
+                </div>
+            <div class="action-button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </nav>
     <?php else : ?>
         <nav class="navbar">
@@ -70,6 +88,21 @@ $conexao->close();
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
                     <li class="carrinho"><a href="login.php"><img src="imagens/loginicon.png" alt="logout"></a></li>
                 </ul>
+            </div>
+            <div class="nav-items-mini">
+                    <ul>
+                        <li><a href="index.php">home</a></li>
+                        <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                        <li><a href="homem.php">masculino</a></li>
+                        <li><a href="mulher.php">feminino</a></li>
+                        <li><a href="quemsomos.php">quem somos</a></li>
+                        <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                        <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
+                        <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
+                    </ul>
+                </div>
+            <div class="action-button">
+                <i class="fa-solid fa-bars"></i>
             </div>
         </nav>
     <?php endif; ?>
@@ -177,5 +210,5 @@ $conexao->close();
         </div>
     </footer>
 </body>
-
+<script src="script.js"></script>
 </html>
