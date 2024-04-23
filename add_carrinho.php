@@ -11,7 +11,6 @@ if (!isset($_SESSION['nome'])) {
 if (isset($_POST['produto_id'])) {
     $produto_id = $_POST['produto_id'];
 
-    // Conexão com o banco de dados
     $conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
 
     if ($conexao->connect_error) {

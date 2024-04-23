@@ -1,35 +1,27 @@
 <?php
 session_start();
 
-// Conexão com o banco de dados
 $conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
 
-// Verifica se houve erro na conexão
 if ($conexao->connect_error) {
     die("Erro de conexão: " . $conexao->connect_error);
 }
 
-// Consulta SQL para selecionar os produtos
-$sql = "SELECT * FROM roupas LIMIT 4"; // Limite de 4 produtos, ajuste conforme necessário
+$sql = "SELECT * FROM roupas"; 
 
-// Executa a consulta
 $resultado = $conexao->query($sql);
 
-// Verifica se houve resultados
-if ($resultado->num_rows > 0) {
-    // Inicializa a variável $produtos como um array
-    $produtos = array();
 
-    // Percorre os resultados da consulta e armazena em $produtos
+if ($resultado->num_rows > 0) {
+   
+    $produtos = array();
     while ($row = $resultado->fetch_assoc()) {
         $produtos[] = $row;
     }
 } else {
-    // Se não houver resultados, define $produtos como um array vazio
     $produtos = array();
 }
 
-// Fecha a conexão com o banco de dados
 $conexao->close();
 ?>
 
@@ -49,7 +41,6 @@ $conexao->close();
 </head>
 
 <body bgcolor="FFFEF8">
-    <!-- Navbar -->
     <?php if (isset($_SESSION['nome'])) : ?>
         <nav class="navbar">
             <div class="nav-items">
@@ -61,11 +52,8 @@ $conexao->close();
                     <li><a href="mulher.php">feminino</a></li>
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                    <li><a href="editar_usuario.php">editar informações</a></li>
-                    <li class="logo">
-                        <span><?php echo $_SESSION['nome']; ?></span>
-                        <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>
-                    </li>
+                    <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
+                    <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
                 </ul>
             </div>
         </nav>

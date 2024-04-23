@@ -46,6 +46,10 @@ body {
   filter: invert(100%);
 }
 
+.config img {
+  width: 25px;
+}
+
 #logokkjk {
   width: 200px;
 }

@@ -53,9 +53,9 @@
         <h2>Login</h2>
         <form action="auth_login.php" method="post">
              <label for="email">Email:</label><br>
-             <input type="text" id="email" name="email"><br>
+             <input type="text" id="email" name="email" required><br>
              <label for="senha">Senha:</label><br>
-             <input type="password" id="senha" name="senha"><br><br>
+             <input type="password" id="senha" name="senha" required><br><br>
              <input type="submit" value="Entrar">
         </form>
         <p>Ainda não é cadastrado? Realize seu <a href="cadastro.php">cadastro</a>.</p>

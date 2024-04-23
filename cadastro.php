@@ -27,6 +27,15 @@
             </div>
         </nav>
     </section>
+
+    <script>
+    function mascaraCpf(campo) {
+        campo.value = campo.value.replace(/\D/g, '');
+        campo.value = campo.value.replace(/^(\d{3})(\d)/, '$1.$2');
+        campo.value = campo.value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3'); 
+        campo.value = campo.value.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4'); 
+    }
+</script>
 </head>
 
 <body bgcolor="FFFEF8">
@@ -34,17 +43,17 @@
         <h2>Cadastro</h2>
         <form action="auth_cadastro.php" method="post">
             <label for="name">Nome:</label>
-            <input type="text" id="name" name="nome"><br>
+            <input type="text" id="name" name="nome"required><br>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br>
+            <input type="email" id="email" name="email"required><br>
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf"><br>
+            <input type="text" id="cpf" name="cpf" oninput="mascaraCpf(this)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido (formato: 111.111.111-11)" required><br>
             <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" name="endereco"><br>
+            <input type="text" id="endereco" name="endereco" required><br>
             <label for="birthdate">Data de Nascimento:</label>
-            <input type="date" id="birthdate" name="data_nascimento"><br>
+            <input type="date" id="birthdate" name="data_nascimento" required><br>
             <label for="password">Senha:</label>
-            <input type="password" id="password" name="senha"><br><br>
+            <input type="password" id="senha" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}" title="A senha deve conter pelo menos um número, uma letra maiúscula, uma letra minúscula, um caractere especial ($, *, &, @ ou #) e ter no mínimo 8 caracteres" required><br><br>
             <input type="submit" value="Cadastrar">
         </form>
         <p>Já possui uma conta? Faça <a href="login.php">login</a>.</p>

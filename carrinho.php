@@ -46,7 +46,6 @@ $conexao->close();
 </head>
 
 <body bgcolor="FFFEF8">
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-items">
             <img src="imagens/roguelogobranca.png" id="logokkjk">
@@ -57,9 +56,8 @@ $conexao->close();
                 <li><a href="mulher.php">feminino</a></li>
                 <li><a href="quemsomos.php">quem somos</a></li>
                 <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="Carrinho"></a></li>
-                <li><a href="editar_usuario.php">editar informações</a></li>
+                <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
                 <li class="logo">
-                    <span><?php echo $_SESSION['nome']; ?></span>
                     <a href="logout.php"><img src="imagens/logouticon.png" alt="Logout"></a>
                 </li>
             </ul>
