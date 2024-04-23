@@ -56,25 +56,24 @@
 </div>
 <section class="quemsomos">
     <h1 class="quemsomos-h1">QUEM SOMOS</h1>
-    
     <p class="quemsomos-main-txt">Rogue, sua nova experiência de moda online que desafia as convenções. Na Rogue, não apenas oferecemos roupas, mas um estilo de vida. Nossa coleção é uma mistura única de elegância e ousadia, projetada para aqueles que se atrevem a ser diferentes. Desde peças clássicas reinventadas até as últimas tendências da moda, cada item em nossa loja é cuidadosamente selecionado para garantir qualidade e estilo inigualáveis. Seja você mesmo, seja autêntico, seja Rogue. Explore nossa loja hoje e descubra o que significa vestir-se com confiança e originalidade.</p>
     <section class="quemsomos-body">
-        <section class="quemsomos1">
-            <div>
+        <section>
+            <div class="quemsomos1">
                 <img src="imagens/quemsomos/roupas-quemsomos.webp">
                 <p>Descubra a verdadeira expressão do seu estilo com as roupas da Rogue. Em cada costura, encontrará o compromisso impecável com a qualidade e o design exclusivo que tornam nossas peças únicas. Do casual ao elegante, cada item reflete a dedicação à excelência artesanal e aos materiais premium. Vista-se com confiança, sabendo que cada escolha é uma afirmação de seu estilo distinto. Descubra o que é ser autêntico. Descubra Rogue.</p>
             </div>
         </section>
 
-        <section class="quemsomos2">
-            <div>
+        <section>
+            <div class="quemsomos2">
                 <img src="imagens/quemsomos/estoque-quemsomos.webp">
                 <p>Explore o tesouro de estilo na Rogue! Nosso estoque é um universo de possibilidades para quem busca se destacar com elegância e autenticidade. De peças clássicas a tendências inovadoras, cada item foi selecionado com cuidado para atender aos mais exigentes gostos. Do casual descontraído ao sofisticado, encontrará tudo o que precisa para criar looks que refletem sua personalidade única. Não espere mais para descobrir as joias escondidas em nosso estoque. Visite-nos hoje mesmo e deixe sua moda falar por si mesma com a Rogue.</p>
             </div>
         </section>
 
-        <section class="quemsomos3">
-            <div>
+        <section>
+            <div class="quemsomos3">
                 <img src="imagens/quemsomos/suporte-quemsomos.png">
                 <p>Com o suporte ao cliente online da Rogue, sua experiência de compra atinge um novo patamar de conveniência e excelência. Nossa equipe está sempre à disposição para responder às suas dúvidas, auxiliar com suas escolhas e garantir que sua jornada de compras seja suave e satisfatória. Seja através de chat ao vivo, e-mail ou redes sociais, estamos aqui para oferecer orientação personalizada e resolver qualquer questão que você possa ter. Com o suporte online da Rogue, você nunca está sozinho na busca pelo estilo perfeito. Experimente hoje mesmo e descubra o padrão de atendimento que nos torna a escolha preferida dos fashionistas exigentes.</p>
             </div>
