@@ -1491,7 +1491,7 @@ aside {
 }
 
 
-@media (max-width: 425px) {
+@media (max-width: 866px) {
   .nav-items > *:not(#logokkjk) {
     display: none;
   }
@@ -1506,7 +1506,7 @@ aside {
 
 }
 
-@media (min-width: 426px) {
+@media (min-width: 867px) {
   .action-button{
       display: none;
   }
@@ -1547,7 +1547,7 @@ aside {
   text-decoration: none;
   display: none;
   position: fixed;
-  top: 30%; 
+  top: 22%; 
   right: 0; 
   transform: translate(0%, -50%); 
   z-index: 1; 
