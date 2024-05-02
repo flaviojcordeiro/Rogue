@@ -57,11 +57,24 @@ $conexao->close();
                 <li><a href="quemsomos.php">quem somos</a></li>
                 <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="Carrinho"></a></li>
                 <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
-                <li class="logo">
-                    <a href="logout.php"><img src="imagens/logouticon.png" alt="Logout"></a>
-                </li>
+                <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="Logout"></a></li>
             </ul>
         </div>
+        <div class="nav-items-mini">
+                    <ul>
+                        <li><a href="index.php">home</a></li>
+                        <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                        <li><a href="homem.php">masculino</a></li>
+                        <li><a href="mulher.php">feminino</a></li>
+                        <li><a href="quemsomos.php">quem somos</a></li>
+                        <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                        <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
+                        <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
+                    </ul>
+                </div>
+            <div class="action-button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
     </nav>
 
     <div class="content"></div>

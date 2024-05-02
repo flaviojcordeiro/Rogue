@@ -40,7 +40,7 @@ $conexao->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Rogue</title>
+    <title>rogue</title>
 </head>
 
 <body bgcolor="FFFEF8">
@@ -97,7 +97,7 @@ $conexao->close();
                         <li><a href="mulher.php">feminino</a></li>
                         <li><a href="quemsomos.php">quem somos</a></li>
                         <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                        <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
+                        <li class="carrinho"><a href="login.php"><img src="imagens/loginicon.png" alt="logout"></a></li>
                     </ul>
                 </div>
             <div class="action-button">

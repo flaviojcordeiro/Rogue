@@ -25,6 +25,20 @@
                     <li class="logo"><a href="login.php"><img src="imagens/loginicon.png" alt="logo"></a></li>
                 </ul>
             </div>
+            <div class="nav-items-mini">
+                    <ul>
+                        <li><a href="index.php">home</a></li>
+                        <li><a href="guardaroupas.php">guarda-roupa</a></li>
+                        <li><a href="homem.php">masculino</a></li>
+                        <li><a href="mulher.php">feminino</a></li>
+                        <li><a href="quemsomos.php">quem somos</a></li>
+                        <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
+                        <li class="carrinho"><a href="login.php"><img src="imagens/loginicon.png" alt="logout"></a></li>
+                    </ul>
+                </div>
+            <div class="action-button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </nav>
     </section>
 
