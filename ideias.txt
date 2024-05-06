@@ -1,4 +1,4 @@
--Não deixar ir para o pagamento com carrinho vazio(Flávio e Eduardo)
--Interface chat(Flávio e Eduardo)
--Alterar BD e printar(Flávio e Eduardo)
--User stories, criterios e Canvas(Resto)
+-Não deixar ir para o pagamento com carrinho vazio
+-Adicionar histórico de pedidos
+-Interface chat
+-User stories, criterios e Canvas
