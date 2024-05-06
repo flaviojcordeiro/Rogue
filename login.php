@@ -85,8 +85,18 @@
              <input type="password" id="senha" name="senha" required><br><br>
              <input type="submit" value="Entrar">
         </form>
+        <?php
+            if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
+            echo '<p>Email ou senha incorretos, tente novamente!</p>';
+             }
+            elseif (isset($_GET['signin']) && $_GET['signin'] == 'correct') {
+            echo '<p>Conta criada com sucesso!</p>';
+             }
+            ?>
         <p>Ainda não é cadastrado? Realize seu <a href="cadastro.php">cadastro</a>.</p>
     </div>
+
+    
 </body>
 <script src="script.js"></script>
 </html>

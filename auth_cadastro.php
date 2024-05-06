@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se todos os campos estão preenchidos
     if (!empty($nome) && !empty($email) && !empty($senha) && !empty($data_nascimento) && !empty($cpf) && !empty($endereco)) {
 
-        // Validar a data de nascimento
+        
         $data_atual = date('Y-m-d');
         if ($data_nascimento >= $data_atual) {
             echo "Data de nascimento inválida.";
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("ssssss", $nome, $email, $senha_hash, $data_nascimento, $cpf, $endereco);
 
         if ($stmt->execute()) {
-            header("Location: login.php");
+            header("Location: login.php?signin=correct");
             exit();
         } else {
             echo "Erro ao cadastrar o usuário: " . $stmt->error;

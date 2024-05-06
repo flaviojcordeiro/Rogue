@@ -1,15 +1,32 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-if (!empty($_SESSION['carrinho'])) {
-    $total = 0;
-
-    foreach ($_SESSION['carrinho'] as $produto) {
-        $total += $produto['preco'] * $produto['quantidade'];
-    }
-} else {
-    $total = 0;
+if (!isset($_SESSION['nome'])) {
+    header("Location: login.php");
+    exit;
 }
+
+$conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
+
+if ($conexao->connect_error) {
+    die("Erro de conexão: " . $conexao->connect_error);
+}
+
+$stmt = $conexao->prepare("SELECT r.id, r.nome, r.descricao, r.foto, r.preco, c.quantidade FROM carrinho c JOIN roupas r ON c.produto_id = r.id WHERE c.usuario_id = ?");
+$stmt->bind_param("i", $_SESSION['id']);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $produtos_carrinho = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    $produtos_carrinho = array();
+}
+
+$stmt->close();
+$conexao->close();
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +83,7 @@ if (!empty($_SESSION['carrinho'])) {
                 <h2>Pagamento</h2>
             </div>
             <div class="pagamento-form">
-                <p>Total do carrinho: R$ <?php echo number_format($total, 2, ',', '.'); ?></p>
+                <p>Total do carrinho: R$ <?php echo calcularSubtotal($produtos_carrinho); ?></p>
                 <p>Envie o valor total da sua compra via Pix para o seguinte QR Code:</p>
                 <img src="imagens/qrcodepix.jpeg" alt="QR Code Pix">
                 <p>Código pix Copia e Cola: 00020126330014BR.GOV.BCB.PIX0111141396329335204000053039865802BR5924EDUARDO DO PRADO BONACIN6009SAO PAULO62250521k5QRPBXtP59yhbCSt2wdf63045A3F</p>
@@ -151,7 +168,6 @@ if (!empty($_SESSION['carrinho'])) {
 
     <script>
         document.getElementById('btn-finalizar-compra').addEventListener('click', function() {
-            // Enviar uma solicitação POST para limpar_carrinho.php
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'limpar_carrinho.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -164,3 +180,14 @@ if (!empty($_SESSION['carrinho'])) {
 </body>
 
 </html>
+
+<?php
+function calcularSubtotal($produtos_carrinho)
+{
+    $subtotal = 0;
+    foreach ($produtos_carrinho as $produto) {
+        $subtotal += $produto['preco'] * $produto['quantidade'];
+    }
+    return number_format($subtotal, 2, ',', '.');
+}
+?>

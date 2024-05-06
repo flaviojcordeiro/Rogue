@@ -1,8 +1,4 @@
 -Não deixar ir para o pagamento com carrinho vazio(Flávio e Eduardo)
--Pop-up senha e email invalido(Flávio e Eduardo)
--Aviso conta criada(Flávio e Eduardo)
 -Interface chat(Flávio e Eduardo)
--Arrumar hospedagem imagem padronização(Flávio e Eduardo)
--Passar o valor do carrinho para o pagamento(Flávio e Eduardo)
 -Alterar BD e printar(Flávio e Eduardo)
 -User stories, criterios e Canvas(Resto)

@@ -253,7 +253,6 @@ $conexao->close();
 </html>
 
 <?php
-// Função para calcular o subtotal dos produtos no carrinho
 function calcularSubtotal($produtos_carrinho)
 {
     $subtotal = 0;

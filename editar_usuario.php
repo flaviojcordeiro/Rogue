@@ -33,7 +33,7 @@ if (!isset($_SESSION['nome'])) {
                     <li><a href="quemsomos.php">quem somos</a></li>
                     <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
                     <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
-                    <li class="logo">
+                    <li class="logo">x
                         <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>
                     </li>
                 </ul>

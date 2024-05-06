@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -8,8 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        
-        var_dump($_POST);
 
         $conn = new mysqli('localhost:3306', 'root', 'PUC@1234', 'rogue');
 
@@ -39,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 exit();
             } else {
-                header("Location: login.php");
+                header("Location: login.php?error=incorrect");
             }
         } else {
-            header("Location: login.php");
+            header("Location: login.php?error=incorrect");
         }
 
         $stmt->close();
