@@ -943,7 +943,7 @@ button {
 }
 
 .nav-selecionado {
-  text-decoration: underline 1px;
+  text-decoration:underline;
 }
 
 .lista-pedidos {
@@ -962,6 +962,7 @@ button {
   display: flex;
   padding-left: 300px;
   padding-right: 100px;
+  margin-bottom: 100px;
 
   section {
     flex: 1;
@@ -1559,4 +1560,48 @@ aside {
 .nav-items-mini.show {
   display: block;
   opacity: 1; 
+}
+
+
+
+
+
+.pagamento-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 350  px;
+}
+
+.pagamento-header h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.pagamento-form p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.pagamento-form img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.btn-finalizar {
+  background-color: #F7CA18;
+  color: #FFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-finalizar:hover {
+  background-color: #E5B416;
 }

@@ -86,8 +86,6 @@ $conexao->close();
                 <li>Pagamento</li>
                 <li>></li>
                 <li>Entrega</li>
-                <li>></li>
-                <li>Finalizar compra</li>
             </div>
         </section>
         <section>
@@ -148,7 +146,7 @@ $conexao->close();
                             <span>R$ <?php echo calcularSubtotal($produtos_carrinho); ?></span>
                         </footer>
                     </div>
-                    <button class="finalizar-compra">Finalizar compra</button>
+                    <a href="pagamento.php"><button class="finalizar-compra">Ir para pagamento</button></a>
                 </aside>
             </div>
 
