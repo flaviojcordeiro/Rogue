@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!empty($_SESSION['carrinho'])) {
+    $total = 0;
+
+    foreach ($_SESSION['carrinho'] as $produto) {
+        $total += $produto['preco'] * $produto['quantidade'];
+    }
+} else {
+    $total = 0;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
-    <title>Pagamento</title>
+    <title>rogue</title>
 </head>
 
 <body bgcolor="FFFEF8">
@@ -52,6 +66,7 @@
                 <h2>Pagamento</h2>
             </div>
             <div class="pagamento-form">
+                <p>Total do carrinho: R$ <?php echo number_format($total, 2, ',', '.'); ?></p>
                 <p>Envie o valor total da sua compra via Pix para o seguinte QR Code:</p>
                 <img src="imagens/qrcodepix.jpeg" alt="QR Code Pix">
                 <p>Código pix Copia e Cola: 00020126330014BR.GOV.BCB.PIX0111141396329335204000053039865802BR5924EDUARDO DO PRADO BONACIN6009SAO PAULO62250521k5QRPBXtP59yhbCSt2wdf63045A3F</p>

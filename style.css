@@ -1573,7 +1573,7 @@ aside {
   background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 350  px;
+  margin-bottom: 150px;
 }
 
 .pagamento-header h2 {
@@ -1587,7 +1587,7 @@ aside {
 }
 
 .pagamento-form img {
-  max-width: 100%;
+  width: 300px;
   height: auto;
   margin-bottom: 20px;
 }
