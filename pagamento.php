@@ -57,7 +57,7 @@
                 <p>Código pix Copia e Cola: 00020126330014BR.GOV.BCB.PIX0111141396329335204000053039865802BR5924EDUARDO DO PRADO BONACIN6009SAO PAULO62250521k5QRPBXtP59yhbCSt2wdf63045A3F</p>
                 <p>Após o pagamento, clique no botão abaixo para finalizar a compra.</p>
                 <form action="finalizar_compra.php" method="POST">
-                    <button type="submit" class="btn-finalizar">Finalizar Compra</button>
+                    <button type="button" class="btn-finalizar" id="btn-finalizar-compra">Finalizar Compra</button>
                 </form>
             </div>
         </section>
@@ -133,6 +133,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('btn-finalizar-compra').addEventListener('click', function() {
+            // Enviar uma solicitação POST para limpar_carrinho.php
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'limpar_carrinho.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                window.location.href = 'index.php';
+            };
+            xhr.send();
+        });
+    </script>
 </body>
 
 </html>
