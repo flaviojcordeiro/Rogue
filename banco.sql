@@ -43,3 +43,13 @@ CREATE TABLE carrinho (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (produto_id) REFERENCES roupas(id)
 );
+
+CREATE TABLE chat (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    atendente_id INT,
+    usuario_id INT,
+    mensagem TEXT,
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (atendente_id) REFERENCES usuarios(id),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
