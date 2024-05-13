@@ -6,7 +6,7 @@ CREATE TABLE usuarios (
     cpf VARCHAR(20) NOT NULL,
     endereco TEXT NOT NULL,
     data_nascimento DATE NOT NULL,
-    is_admin BOOLEAN DEFAULT FALSE
+    is_admin INT  DEFAULT 0;
 );
 
 CREATE TABLE categorias_roupas (

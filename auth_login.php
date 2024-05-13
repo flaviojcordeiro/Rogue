@@ -29,8 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['is_admin'] = $row['is_admin'];
 
-                if ($row['is_admin']) {
+                if ($row['is_admin'] == 1) {
                     header("Location: adminreg.php");
+                } elseif ($row['is_admin'] == 2) {
+                    header("Location: atendente.php");
                 } else {
                     header("Location: index.php");
                 }
