@@ -1605,3 +1605,54 @@ aside {
 .btn-finalizar:hover {
   background-color: #E5B416;
 }
+
+/* Estilo geral do chat */
+.chat-container {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Cabeçalho do chat */
+.chat-header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Histórico de mensagens */
+.chat-history {
+  height: 300px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.message {
+  margin-bottom: 5px;
+  padding: 8px 10px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+/* Área de entrada de mensagem */
+.chat-input {
+  display: flex;
+}
+
+#message-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-chat {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
