@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($row['is_admin'] == 1) {
                     header("Location: adminreg.php");
                 } elseif ($row['is_admin'] == 2) {
-                    header("Location: atendente.php");
+                    header("Location: atendentereg.php");
                 } else {
                     header("Location: index.php");
                 }
