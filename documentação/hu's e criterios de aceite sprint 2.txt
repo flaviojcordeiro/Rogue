@@ -1,0 +1,240 @@
+MANTER CADASTRO DE PREFERENCIA
+USER STORY
+
+Como comprador
+
+Posso manter um cadastro de preferências
+
+Para receber recomendações de roupas e estilos
+
+CRITERIO DE ACEITE 1
+
+Dado que um comprador esta logado em sua conta
+
+Quando acessa a página de recomendações
+
+Então deve ver campos para selecionar suas preferências de estilo, tamanho e marcas.
+
+CRITERIO DE ACEITE 2
+
+Dado que um comprador já possui uma conta no site
+
+Quando o comprador acessar suas configurações de perfil
+
+Então o comprador deve ser capaz de visualizar e modificar suas preferências de roupa a qualquer momento
+
+CRITERIO DE ACEITE 3
+
+Dado que um comprador está navegando pelo site
+
+Quando o comprador estiver visualizando produtos
+
+Então o sistema deve utilizar as preferências do comprador para recomendar produtos mais relevantes e alinhados com seus gostos.
+
+CRITERIO DE ACEITE 4
+
+Dado que um comprador recebeu recomendações com base em suas preferências
+
+Quando o comprador interagir com as recomendações, como clicar em um produto recomendado
+
+Então o sistema deve considerar essa interação para refinar ainda mais as recomendações futuras.
+
+
+
+
+
+
+
+FAVORITAR PEÇAS DE ROUPAS
+USER STORY
+
+Como comprador
+
+Posso favoritar peças de roupas
+
+Para filtrar as roupas favoritas
+
+CRITERIO DE ACEITE 1
+
+Dado que um comprador está navegando no site e encontra uma peça de roupa interessante
+
+Quando o comprador clicar no botão "Favoritar" associado à peça
+
+Então a peça de roupa deve ser adicionada à lista de favoritos do comprador para referência futura.
+
+CRITERIO DE ACEITE 2
+
+Dado que um comprador adicionou peças de roupas à lista de favoritos
+
+Quando o comprador acessar sua conta no site
+
+Então o comprador deve poder visualizar todas as peças de roupa favoritadas de forma organizada e com detalhes relevantes, como se deseja remover dos favoritos ou adicionar ao carrinho.
+
+CRITREIO DE ACEITE 3
+
+Dado que um comprador está visualizando sua lista de favoritos
+
+Quando o comprador decidir remover uma peça de roupa da lista
+
+Então a peça de roupa deve ser removida imediatamente da lista de favoritos do comprador.
+
+CRITERIO DE ACEITE 4
+
+Dado que um comprador está navegando pelo site
+
+Quando o comprador estiver interessado em acessar suas peças de roupa favoritadas
+
+Então o comprador deve poder acessar facilmente a lista de favoritos a partir de qualquer página do site.
+
+
+
+
+
+
+REALIZAR O SUPORTE POR CHAT
+User story | Realizar o suporte por chat
+
+Como - Comprador e Atendente
+
+Posso - Realizar o suporte por chat
+
+Para - Solucionar problemas e dúvidas de produtos e pedidos
+
+Critério de Aceite 1
+
+Dado que eu quero realizar um suporte por chat
+
+Quando clico no ícone de suporte, em qualquer página
+
+Então consigo entrar em um chat privado com um atendente para solucionar dúvidas e problemas
+
+Critério de Aceite 2
+
+Dado que sou um atendente
+
+Quando entro no chat privado com o comprador
+
+Então consigo acessar informações do comprador, como nome, formas de pagamento, endereço de entrega e pedidos confirmados.
+
+Critério de Aceite 3
+
+Dado que sou um atendente
+Quando resolvo os conflitos do comprador
+Então consigo finalizar a operação de suporte via chat, direcionando o ocorrido para o banco de dados.
+
+
+
+
+
+
+
+EDITAR INFORMAÇÕES DE PEDIDOS DE CLIENTES
+User story | Editar informações do pedido de clientes
+
+Como - Administrador e Atendente
+
+Posso - Editar informações do pedido de clientes
+
+Para - Solucinar problemas ocorridos durante a compra de produtos
+
+Critério de Aceite 1
+
+Dado que um comprador solicita uma alteração nos detalhes do seu pedido
+
+Quando é requisitado a troca das informações do pedido
+
+Então consigo alterar as informações de um pedido realizado anteriormente
+
+Critério de Aceite 2
+
+Dado que um comprador errou o modelo de um produto
+
+Quando é requisitado a troca das informações do pedido
+
+Então o administrador verifica a disponibilidade do produto alterado em estoque, sendo assim alterando as informações da compra
+
+Critério de Aceite 3
+
+Dado que um comprador solicita a exclusão de informações pessoais de seu pedido
+Quando o atendente receber a solicitação de exclusão de dados pessoais.
+Então o atendente excluirá as informações requisitadas pelo comprador, como forma de pagamento, endereço, informações pessoais
+
+
+
+
+
+
+
+FINALIZAR CARRINHO COM PEDIDO
+User story | Finalizar carrinho com pedido
+
+Como - Comprador
+
+Posso - Finalizar carrinho com pedido
+
+Para - Realizar compras na loja
+
+Critério de Aceite 1
+
+Dado que um cliente tenta finalizar um pedido que inclui itens fora de estoque.
+
+Quando finalizar o pedido
+
+Então o sistema notifica o comprador sobre a falta de estoque e impossibilitar de finalizar o pedido
+
+Critério de Aceite 2
+
+Dado que um comprador está prestes a finalizar um pedido
+
+Quando finalizar o pedido
+
+Então o sistema exibe um resumo do pedido completo, incluindo todos os itens selecionados, quantidades, preços individuais, custos de envio.
+
+Critério de Aceite 3
+
+Dado que sou um comprador
+
+Quando finalizo o meu pedido
+
+Então consigo visualizar todas as informações inseridas e selecionadas envolvendo os produtos da loja
+
+
+
+MANTER CARRINHO DE COMPRAS
+User story - Manter carrinho de compras
+
+Como - Comprador
+
+Posso - manter carrinho de compras
+
+Para - poder finalizar a compra ou adicionar mais itens
+
+CRITERIO DE ACEITE 1
+
+Dado que um comprador está navegando no site e visualizando um item que deseja comprar
+
+Quando o comprador clicar no botão "Adicionar ao carrinho"
+
+Então o item deve ser adicionado ao carrinho de compras do comprador junto com outros itens mantidos nele.
+
+CRITERIO DE ACEITE 2
+
+Dado que um comprador adicionou itens ao carrinho de compras
+
+Quando o comprador acessar a página do carrinho de compras
+
+Então os itens adicionados devem ser exibidos de forma clara e organizada, com detalhes como nome, preço e quantidade.
+
+CRITERIO DE ACEITE 3
+
+Dado que um comprador está visualizando o carrinho de compras
+
+Quando o comprador ajustar a quantidade de itens ou remover um item do carrinho
+
+Então as alterações feitas pelo comprador devem ser refletidas instantaneamente no carrinho de compras.
+
+
+
+
+
+
