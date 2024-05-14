@@ -41,7 +41,6 @@ CREATE TABLE carrinho (
     produto_id INT,
     quantidade INT,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY (produto_id) REFERENCES roupas(id)
 );
 
 CREATE TABLE chat (

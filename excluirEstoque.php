@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +42,9 @@
     </section>
     <section class="phpconnection">
         <?php
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
         // Verifica se o id foi recebido via GET
         if (isset($_GET['id'])) {
             // Obtém o id da roupa a ser excluída
