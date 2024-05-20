@@ -6,7 +6,6 @@ if (!isset($_SESSION['nome'])) {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,19 +88,19 @@ if (!isset($_SESSION['nome'])) {
         <h2>Recomendação de Produtos</h2>
         <form action="guardaroupas.php" method="post">
             <h3>Escolha sua preferência:</h3><br>
-            <input type="radio" id="roupas-claras" name="preferencia" value="1">
+            <input type="checkbox" id="roupas-claras" name="preferencia" value="1">
             <label for="roupas-claras">Roupas Claras</label><br>
             
-            <input type="radio" id="roupas-escuras" name="preferencia" value="2">
+            <input type="checkbox" id="roupas-escuras" name="preferencia" value="2">
             <label for="roupas-escuras">Roupas Escuras</label><br>
             
-            <input type="radio" id="skate" name="preferencia" value="3">
+            <input type="checkbox" id="skate" name="preferencia" value="3">
             <label for="skate">Skate</label><br>
             
-            <input type="radio" id="casual" name="preferencia" value="4">
+            <input type="checkbox" id="casual" name="preferencia" value="4">
             <label for="casual">Casual</label><br>
             
-            <input type="radio" id="esportiva" name="preferencia" value="5">
+            <input type="checkbox" id="esportiva" name="preferencia" value="5">
             <label for="esportiva">Esportiva</label><br><br>
 
             <select name="genero" id="genero">
