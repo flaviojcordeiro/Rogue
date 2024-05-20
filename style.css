@@ -121,6 +121,22 @@ body {
 
 }
 
+/*-=-= BOTAO DE FAVORITAR PRODUTO =-=-*/
+.favorite-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: grey;
+  font-size: 20px;
+}
+
+.favorite-btn:hover {
+  transition: 0.5s;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(253, 104, 104);
+}
 /* -=-= FOOTER  =-=- */
 
 :root {
