@@ -63,3 +63,10 @@ CREATE TABLE historico_pedidos (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (produto_id) REFERENCES roupas(id)
 );
+
+CREATE TABLE preferencias (
+    usuario_id INT PRIMARY KEY,
+    preferencias VARCHAR(255),
+    genero VARCHAR(50),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
