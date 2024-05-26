@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Redirecionar se não estiver logado
 if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
     exit;
@@ -9,23 +8,19 @@ if (!isset($_SESSION['nome'])) {
 
 require_once 'conexao.php';
 
-// Checar se o usuário está tentando editar suas preferências
 $editando = isset($_GET['editar']) && $_GET['editar'] == 'true';
 
-// Verificar se o formulário foi submetido
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario_id = $_SESSION['id'];  // Supondo que o ID do usuário está armazenado na sessão
+    $usuario_id = $_SESSION['id']; 
     $preferencias = isset($_POST['preferencia']) ? implode(',', $_POST['preferencia']) : '';
     $genero = $_POST['genero'] ?? '';
 
     if ($editando) {
-        // Atualizar as preferências existentes
         $sql = "UPDATE preferencias SET preferencias = ?, genero = ? WHERE usuario_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssi", $preferencias, $genero, $usuario_id);
         $stmt->execute();
     } else {
-        // Inserir novas preferências ou atualizar se já existem
         $sql = "INSERT INTO preferencias (usuario_id, preferencias, genero) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE preferencias = VALUES(preferencias), genero = VALUES(genero)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("iss", $usuario_id, $preferencias, $genero);
@@ -36,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
 }
 
-// Redirecionar automaticamente se já tiver preferências definidas e não estiver editando
 if (!$editando) {
     $usuario_id = $_SESSION['id'];
     $sql = "SELECT preferencias FROM preferencias WHERE usuario_id = ?";
@@ -50,7 +44,6 @@ if (!$editando) {
     }
 }
 
-// Carregar as preferências existentes se estiver em modo de edição
 if ($editando) {
     $sql = "SELECT preferencias, genero FROM preferencias WHERE usuario_id = ?";
     $stmt = $conn->prepare($sql);

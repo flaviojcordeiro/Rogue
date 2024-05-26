@@ -1,16 +1,13 @@
 <?php
 session_start();
 
-// Redirecionar se não estiver logado
 if (!isset($_SESSION['nome']) || !isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Incluir arquivo de conexão ao banco de dados
 require_once 'conexao.php';
 
-// Recuperar preferências e gênero do usuário
 $usuario_id = $_SESSION['id'];
 $sql = "SELECT preferencias, genero FROM preferencias WHERE usuario_id = ?";
 $stmt = $conn->prepare($sql);
@@ -22,12 +19,10 @@ if ($result->num_rows > 0) {
     $preferencias = explode(',', $row['preferencias']);
     $genero = $row['genero'];
 } else {
-    // Se não houver preferências definidas, redirecionar para a página de configuração de preferências
     header("Location: guardaroupas.php");
     exit;
 }
 
-// Preparar a consulta SQL para buscar roupas com base nas preferências e gênero
 $query = "SELECT * FROM roupas WHERE genero = ? AND categoria_id IN (" . implode(',', array_fill(0, count($preferencias), '?')) . ")";
 $params = array_merge([$genero], $preferencias);
 $types = str_repeat('i', count($preferencias));
@@ -127,14 +122,14 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
                     if ($genero == 'masculino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/claro/masc/roupa1.png" alt="Roupas Claras">
-                                <h3>Bermuda Moletom Bege</h3>
-                                <p>R$ 149,99</p>
+                                <h3>Camiseeta manga comprida Branca</h3>
+                                <p>R$ 99,99</p>
                               </div>';
                     } elseif ($genero == 'feminino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/claro/fem/roupa1.png" alt="Roupas Claras Femininas">
-                                <h3>Vestido Claro</h3>
-                                <p>R$ 159,99</p>
+                                <h3>Blusa Clara</h3>
+                                <p>R$ 129,99</p>
                               </div>';
                     }
                     break;
@@ -142,14 +137,14 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
                     if ($genero == 'masculino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/escuro/masc/roupa2.png" alt="Roupas Escuras">
-                                <h3>Jaqueta USA Azul</h3>
-                                <p>R$ 249,99</p>
+                                <h3>Regata Preta</h3>
+                                <p>R$ 119,99</p>
                               </div>';
                     } elseif ($genero == 'feminino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/escuro/fem/roupa1.png" alt="Roupas Escuras Femininas">
-                                <h3>Blusa Escura</h3>
-                                <p>R$ 139,99</p>
+                                <h3>Calça Preta</h3>
+                                <p>R$ 229,99</p>
                               </div>';
                     }
                     break;
@@ -157,14 +152,14 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
                     if ($genero == 'masculino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/skate/masc/roupa1.png" alt="Skate">
-                                <h3>Camiseta Skate</h3>
+                                <h3>Camiseta Skate Branca</h3>
                                 <p>R$ 89,99</p>
                               </div>';
                     } elseif ($genero == 'feminino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/skate/fem/roupa3.png" alt="Skate Feminino">
-                                <h3>Shorts Skate</h3>
-                                <p>R$ 79,99</p>
+                                <h3>Moletom Roxo Oversized</h3>
+                                <p>R$ 329,99</p>
                               </div>';
                     }
                     break;
@@ -172,13 +167,13 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
                     if ($genero == 'masculino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/casual/masc/roupa1.png" alt="Casual">
-                                <h3>Camisa Polo Branca</h3>
-                                <p>R$ 99,99</p>
+                                <h3>Camisa Polo Cinza</h3>
+                                <p>R$ 169,99</p>
                               </div>';
                     } elseif ($genero == 'feminino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/casual/fem/roupa1.png" alt="Casual Feminino">
-                                <h3>Blusa Casual</h3>
+                                <h3>Camisa Azul Escuro Casual</h3>
                                 <p>R$ 89,99</p>
                               </div>';
                     }
@@ -186,14 +181,14 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
                 case '5': // Esportiva
                     if ($genero == 'masculino') {
                         echo '<div class="card">
-                                <img src="imagens/recomendacao/esporte/masc/roupa2.png" alt="Esportiva">
-                                <h3>Agasalho Esportivo</h3>
+                                <img src="imagens/recomendacao/esporte/masc/roupa3.png" alt="Esportiva">
+                                <h3>Bermuda para Treino Cinza</h3>
                                 <p>R$ 199,99</p>
                               </div>';
                     } elseif ($genero == 'feminino') {
                         echo '<div class="card">
                                 <img src="imagens/recomendacao/esporte/fem/roupa1.png" alt="Esportiva Feminina">
-                                <h3>Leggings Esportivas</h3>
+                                <h3>Camiseta Verde para Treino</h3>
                                 <p>R$ 119,99</p>
                               </div>';
                     }
@@ -201,10 +196,10 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
             }
         }
         ?>
-        <div class="edit-preferences">
+    </div>
+    <div class="edit-preferences">
             <a href="guardaroupas.php?editar=true" class="edit-button">Editar Preferências</a>
         </div>
-    </div>
 </div>
 
     <footer>
