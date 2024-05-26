@@ -41,7 +41,7 @@ $conexao->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
-    <title>Carrinho</title>
+    <title>rogue</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 

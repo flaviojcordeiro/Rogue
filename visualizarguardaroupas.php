@@ -2,72 +2,46 @@
 session_start();
 
 // Redirecionar se não estiver logado
-if (!isset($_SESSION['nome'])) {
+if (!isset($_SESSION['nome']) || !isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
 
+// Incluir arquivo de conexão ao banco de dados
 require_once 'conexao.php';
 
-// Checar se o usuário está tentando editar suas preferências
-$editando = isset($_GET['editar']) && $_GET['editar'] == 'true';
-
-// Verificar se o formulário foi submetido
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario_id = $_SESSION['id'];  // Supondo que o ID do usuário está armazenado na sessão
-    $preferencias = isset($_POST['preferencia']) ? implode(',', $_POST['preferencia']) : '';
-    $genero = $_POST['genero'] ?? '';
-
-    if ($editando) {
-        // Atualizar as preferências existentes
-        $sql = "UPDATE preferencias SET preferencias = ?, genero = ? WHERE usuario_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssi", $preferencias, $genero, $usuario_id);
-        $stmt->execute();
-    } else {
-        // Inserir novas preferências ou atualizar se já existem
-        $sql = "INSERT INTO preferencias (usuario_id, preferencias, genero) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE preferencias = VALUES(preferencias), genero = VALUES(genero)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iss", $usuario_id, $preferencias, $genero);
-        $stmt->execute();
-    }
-
-    header("Location: visualizarguardaroupas.php");
+// Recuperar preferências e gênero do usuário
+$usuario_id = $_SESSION['id'];
+$sql = "SELECT preferencias, genero FROM preferencias WHERE usuario_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $preferencias = explode(',', $row['preferencias']);
+    $genero = $row['genero'];
+} else {
+    // Se não houver preferências definidas, redirecionar para a página de configuração de preferências
+    header("Location: guardaroupas.php");
     exit;
 }
 
-// Redirecionar automaticamente se já tiver preferências definidas e não estiver editando
-if (!$editando) {
-    $usuario_id = $_SESSION['id'];
-    $sql = "SELECT preferencias FROM preferencias WHERE usuario_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $usuario_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        header("Location: visualizarguardaroupas.php");
-        exit;
-    }
-}
+// Preparar a consulta SQL para buscar roupas com base nas preferências e gênero
+$query = "SELECT * FROM roupas WHERE genero = ? AND categoria_id IN (" . implode(',', array_fill(0, count($preferencias), '?')) . ")";
+$params = array_merge([$genero], $preferencias);
+$types = str_repeat('i', count($preferencias));
+$types = "s" . $types;
+$stmt = $conn->prepare($query);
+$stmt->bind_param($types, ...$params);
+$stmt->execute();
+$result = $stmt->get_result();
+$roupas = $result->fetch_all(MYSQLI_ASSOC);
 
-// Carregar as preferências existentes se estiver em modo de edição
-if ($editando) {
-    $sql = "SELECT preferencias, genero FROM preferencias WHERE usuario_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $usuario_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $preferencias_selecionadas = explode(',', $row['preferencias']);
-        $genero_selecionado = $row['genero'];
-    }
-}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,38 +111,99 @@ if ($editando) {
                 </div>
             <div class="action-button">
                 <i class="fa-solid fa-bars"></i>
-            </div>    
+            </div>
         </nav>
     <?php endif; ?>
 </head>
 
 <body bgcolor="FFFEF8">
-<div class="contentguardaroupas">
-    <div class="guardaroupas">
-        <h2>Recomendação de Produtos</h2>
-        <form action="guardaroupas.php" method="post">
-            <h3>Escolha sua preferência:</h3><br>
-            <input type="checkbox" id="roupas-claras" name="preferencia[]" value="1">
-            <label for="roupas-claras">Roupas Claras</label><br>
-            
-            <input type="checkbox" id="roupas-escuras" name="preferencia[]" value="2">
-            <label for="roupas-escuras">Roupas Escuras</label><br>
-            
-            <input type="checkbox" id="skate" name="preferencia[]" value="3">
-            <label for="skate">Skate</label><br>
-            
-            <input type="checkbox" id="casual" name="preferencia[]" value="4">
-            <label for="casual">Casual</label><br>
-            
-            <input type="checkbox" id="esportiva" name="preferencia[]" value="5">
-            <label for="esportiva">Esportiva</label><br><br>
-            
-            <select name="genero" id="genero">
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
-            </select><br><br>
-            <input type="submit" value="Enviar">
-        </form>
+<div class="content">
+    <h1>Produtos Recomendados</h1>
+    <div class="card-container">
+        <?php
+        foreach ($preferencias as $preferencia) {
+            switch ($preferencia) {
+                case '1': // Roupas Claras
+                    if ($genero == 'masculino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/claro/masc/roupa1.png" alt="Roupas Claras">
+                                <h3>Bermuda Moletom Bege</h3>
+                                <p>R$ 149,99</p>
+                              </div>';
+                    } elseif ($genero == 'feminino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/claro/fem/roupa1.png" alt="Roupas Claras Femininas">
+                                <h3>Vestido Claro</h3>
+                                <p>R$ 159,99</p>
+                              </div>';
+                    }
+                    break;
+                case '2': // Roupas Escuras
+                    if ($genero == 'masculino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/escuro/masc/roupa2.png" alt="Roupas Escuras">
+                                <h3>Jaqueta USA Azul</h3>
+                                <p>R$ 249,99</p>
+                              </div>';
+                    } elseif ($genero == 'feminino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/escuro/fem/roupa1.png" alt="Roupas Escuras Femininas">
+                                <h3>Blusa Escura</h3>
+                                <p>R$ 139,99</p>
+                              </div>';
+                    }
+                    break;
+                case '3': // Skate
+                    if ($genero == 'masculino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/skate/masc/roupa1.png" alt="Skate">
+                                <h3>Camiseta Skate</h3>
+                                <p>R$ 89,99</p>
+                              </div>';
+                    } elseif ($genero == 'feminino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/skate/fem/roupa3.png" alt="Skate Feminino">
+                                <h3>Shorts Skate</h3>
+                                <p>R$ 79,99</p>
+                              </div>';
+                    }
+                    break;
+                case '4': // Casual
+                    if ($genero == 'masculino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/casual/masc/roupa1.png" alt="Casual">
+                                <h3>Camisa Polo Branca</h3>
+                                <p>R$ 99,99</p>
+                              </div>';
+                    } elseif ($genero == 'feminino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/casual/fem/roupa1.png" alt="Casual Feminino">
+                                <h3>Blusa Casual</h3>
+                                <p>R$ 89,99</p>
+                              </div>';
+                    }
+                    break;
+                case '5': // Esportiva
+                    if ($genero == 'masculino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/esporte/masc/roupa2.png" alt="Esportiva">
+                                <h3>Agasalho Esportivo</h3>
+                                <p>R$ 199,99</p>
+                              </div>';
+                    } elseif ($genero == 'feminino') {
+                        echo '<div class="card">
+                                <img src="imagens/recomendacao/esporte/fem/roupa1.png" alt="Esportiva Feminina">
+                                <h3>Leggings Esportivas</h3>
+                                <p>R$ 119,99</p>
+                              </div>';
+                    }
+                    break;
+            }
+        }
+        ?>
+        <div class="edit-preferences">
+            <a href="guardaroupas.php?editar=true" class="edit-button">Editar Preferências</a>
+        </div>
     </div>
 </div>
 
