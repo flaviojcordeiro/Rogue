@@ -4,3 +4,18 @@
 -User stories, criterios e Canvas
 -Troca de dados manter os originais do banco
 -Confirmar senha no cadastro
+
+
+
+
+
+
+CONFIGURAÇÕES DO NODE.JS
+
+verificar versão | node -v
+verificar versão do npm | npm -v
+
+iniciar npm para instalar dependencias | npm init -y
+instalar dependencias do socket.io | npm install express socket.io
+
+dar run no server | node server.js

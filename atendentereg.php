@@ -14,8 +14,10 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/crc8stj.css">
     <link rel="icon" href="imagens/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>rogue</title>
+</head>
+
+<body>
     <nav class="navbar">
         <div class="nav-items">
             <img src="imagens/roguelogobranca.png" id="logokkjk">
@@ -30,9 +32,7 @@ session_start();
             </ul>
         </div>
     </nav>
-</head>
 
-<body>
     <section class="title-admin">
         <h1>Área de Administrador</h1>
     </section>
@@ -41,14 +41,15 @@ session_start();
             <h1>Chat Rogue</h1>
         </div>
 
-        <div class="chat-history">
-        </div>
+        <div class="chat-history" id="chat-history"></div>
 
         <div class="chat-input">
             <input type="text" id="message-input" placeholder="Digite sua mensagem">
-            <button class="button-chat" onclick="sendMessage()">Enviar</button>
+            <button type ="button"class="button-chat" id="message-button">Enviar</button>
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="suporte.js"></script>
 </body>
 
 </html>
