@@ -113,6 +113,7 @@ if (!isset($_SESSION['nome'])) {
 
             <input type="submit" value="Salvar Alterações">
         </form>
+
         <form onsubmit="return goToChat();">
             <input type="submit" value="Chat com Suporte">
         </form>
@@ -120,6 +121,11 @@ if (!isset($_SESSION['nome'])) {
         <form action="processar_excluir_conta.php" method="post">
             <input type="submit" value="Excluir Conta"
                 onclick="return confirm('Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.')">
+        </form>
+
+        <br>
+        <form>
+        <a href="historico_pedidos.php" class="botao_historico">Histórico de Pedidos</a>
         </form>
     </div>
 </body>
