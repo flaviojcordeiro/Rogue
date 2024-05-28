@@ -8,3 +8,8 @@ if (miniMenu) {
 } else {
     console.log('Mini menu not found.');
 }
+
+function goToChat() {
+    window.location.href = 'usuariochat.php';
+    return false; 
+}
