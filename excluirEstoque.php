@@ -63,26 +63,54 @@ session_start();
                 die("Connection failed: " . mysqli_connect_error());
             }
 
-            // Prepara a declaração SQL
-            $delete_roupa_sql = "DELETE FROM roupas WHERE id =?";
-            $delete_roupa_stmt = mysqli_prepare($conn, $delete_roupa_sql);
+            // Inicia a transação
+            mysqli_begin_transaction($conn);
 
-            // Vincula o parâmetro à declaração preparada
-            mysqli_stmt_bind_param($delete_roupa_stmt, "i", $id);
+            try {
+                // Remove referências na tabela historico_pedidos
+                $sql_historico = "DELETE FROM historico_pedidos WHERE produto_id = ?";
+                $stmt_historico = mysqli_prepare($conn, $sql_historico);
+                mysqli_stmt_bind_param($stmt_historico, "i", $id);
+                mysqli_stmt_execute($stmt_historico);
 
-            // Executa a declaração preparada
-            if (mysqli_stmt_execute($delete_roupa_stmt)) {
-                echo "<h1 id=centralizarmensagemsucesso>Roupa excluída com sucesso!</h1>";
-            } else {
-                echo "<p>Erro executando DELETE: " . mysqli_error($conn) . "</p>";
+                // Remove referências na tabela roupas_likes
+                $sql_likes = "DELETE FROM roupas_likes WHERE roupa_id = ?";
+                $stmt_likes = mysqli_prepare($conn, $sql_likes);
+                mysqli_stmt_bind_param($stmt_likes, "i", $id);
+                mysqli_stmt_execute($stmt_likes);
+
+                // Remove referências na tabela carrinho
+                $sql_carrinho = "DELETE FROM carrinho WHERE produto_id = ?";
+                $stmt_carrinho = mysqli_prepare($conn, $sql_carrinho);
+                mysqli_stmt_bind_param($stmt_carrinho, "i", $id);
+                mysqli_stmt_execute($stmt_carrinho);
+
+                // Remove a roupa da tabela roupas
+                $sql_roupa = "DELETE FROM roupas WHERE id = ?";
+                $stmt_roupa = mysqli_prepare($conn, $sql_roupa);
+                mysqli_stmt_bind_param($stmt_roupa, "i", $id);
+                mysqli_stmt_execute($stmt_roupa);
+
+                // Commita a transação
+                mysqli_commit($conn);
+
+                echo "<h1 id='centralizarmensagemsucesso'>Roupa excluída com sucesso!</h1>";
+            } catch (Exception $e) {
+                // Rollback em caso de erro
+                mysqli_rollback($conn);
+                echo "<p>Erro ao excluir roupa: " . $e->getMessage() . "</p>";
             }
 
-            // Fecha a declaração preparada
-            mysqli_stmt_close($delete_roupa_stmt);
+            // Fecha as declarações preparadas
+            mysqli_stmt_close($stmt_historico);
+            mysqli_stmt_close($stmt_likes);
+            mysqli_stmt_close($stmt_carrinho);
+            mysqli_stmt_close($stmt_roupa);
+
+            // Fecha a conexão
             mysqli_close($conn);
         } else {
             echo "<p>ID não fornecido para exclusão.</p>";
-            echo "<p>ID recebido: " . $id . "</p>";
         }
         ?>
     </section>
