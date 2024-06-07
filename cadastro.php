@@ -1,3 +1,12 @@
+<?php
+if (isset($_GET['error']) && $_GET['error'] == 'invalid_birthdate') {
+    echo "<script>document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('errorMessage').textContent = 'Data de nascimento inválida.';
+        showModal();
+    });</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +58,24 @@
         campo.value = campo.value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3'); 
         campo.value = campo.value.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4'); 
     }
+
+    window.onload = function() {
+    var error = "<?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>";
+    if (error) {
+        document.getElementById('errorMessage').textContent = error;
+        showModal();
+        <?php unset($_SESSION['error']); ?>
+    }
+    };
+
+    function showModal() {
+        document.getElementById('errorModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('errorModal').style.display = 'none';
+        window.history.back();
+    }
 </script>
 </head>
 
@@ -61,7 +88,7 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email"required><br>
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" oninput="mascaraCpf(this)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido (formato: 111.111.111-11)" required><br>
+            <input type="text" id="cpf" name="cpf" oninput="mascaraCpf(this)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido (formato: 111.111.111-11)" maxlength="14" required><br>
             <label for="endereco">Endereço:</label>
             <input type="text" id="endereco" name="endereco" required><br>
             <label for="birthdate">Data de Nascimento:</label>
@@ -72,6 +99,13 @@
         </form>
         <p>Já possui uma conta? Faça <a href="login.php">login</a>.</p>
     </div>
+
+    <div id="errorModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="errorMessage"></p>
+    </div>
+</div>
 </body>
 
 </html>

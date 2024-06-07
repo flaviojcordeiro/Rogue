@@ -34,7 +34,7 @@ session_start();
     </nav>
 
     <section class="title-admin">
-        <h1>Área de Administrador</h1>
+        <h1>Área de Atendente</h1>
     </section>
     <section class="chat-container">
         <div class="chat-header">

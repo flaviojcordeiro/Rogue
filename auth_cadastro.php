@@ -23,11 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         
         $data_atual = date('Y-m-d');
-        if ($data_nascimento >= $data_atual) {
-            echo "Data de nascimento inválida.";
-            exit();
-        }
+        session_start();
 
+        if ($data_nascimento >= $data_atual) {
+            header("Location: cadastro.php?error=invalid_birthdate");
+            exit;
+        }
         if (!preg_match("/^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/", $cpf)) {
             echo "CPF inválido.";
             exit();
