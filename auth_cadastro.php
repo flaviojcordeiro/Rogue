@@ -27,21 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: cadastro.php?error=invalid_birthdate");
             exit;
         }
-        if (!preg_match("/^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/", $cpf)) {
-            echo "CPF inválido.";
-            exit();
-        }
-        
-
-        if (empty($endereco)) {
-            echo "Endereço inválido.";
-            exit();
-        }
-
-        if (strlen($senha) < 8) {
-            echo "Senha deve ter no mínimo 8 caracteres.";
-            exit();
-        }
 
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
