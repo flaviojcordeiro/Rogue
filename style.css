@@ -1772,3 +1772,7 @@ aside {
 .edit-button:hover {
   background-color: #2c2c2c;
 }
+
+.red {
+  color: red !important;
+}
