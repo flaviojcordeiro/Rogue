@@ -1,15 +1,3 @@
--Não deixar ir para o pagamento com carrinho vazio
--Adicionar histórico de pedidos 
--Interface chat
--User stories, criterios e Canvas
--Troca de dados manter os originais do banco
--Confirmar senha no cadastro
-
-
-
-
-
-
 CONFIGURAÇÕES DO NODE.JS
 
 verificar versão | node -v

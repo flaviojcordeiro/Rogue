@@ -70,7 +70,8 @@ $conexao->close();
                         <li class="config"><a href="editar_usuario.php"><img src="imagens/config.png" alt="config"></a></li>
                         <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
                     </ul>
-                </div>
+            </div>
+            <div class="user-welcome">Bem vindo, <?php echo $_SESSION['nome'];?> </div>
             <div class="action-button">
                 <i class="fa-solid fa-bars"></i>
             </div>

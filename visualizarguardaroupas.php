@@ -75,6 +75,7 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
                         <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
                     </ul>
                 </div>
+                <div class="user-welcome">Bem vindo, <?php echo $_SESSION['nome'];?> </div>
             <div class="action-button">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -113,7 +114,7 @@ $roupas = $result->fetch_all(MYSQLI_ASSOC);
 
 <body bgcolor="FFFEF8">
 <div class="content">
-    <h1>Produtos Recomendados</h1>
+    <div class="h1-produtosrecomendados"><h1>Produtos Recomendados</h1></div>
     <div class="card-container">
         <?php
         foreach ($preferencias as $preferencia) {

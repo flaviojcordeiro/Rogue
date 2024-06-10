@@ -31,6 +31,7 @@ session_start();
                 <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
             </ul>
         </div>
+        <div class="user-welcome">Bem vindo, <?php echo $_SESSION['nome'];?> </div>
     </nav>
 
     <section class="title-admin">

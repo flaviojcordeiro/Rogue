@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 // Conexão com o banco de dados
-$conexao = new mysqli("localhost", "root", "PUC@1234", "rogue");
+$conexao = new mysqli("localhost:3306", "root", "PUC@1234", "rogue");
 if ($conexao->connect_error) {
     die("Erro de conexão: " . $conexao->connect_error);
 }
@@ -42,6 +42,7 @@ $result = $stmt->get_result();
                 <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
             </ul>
         </div>
+        <div class="user-welcome">Bem vindo, <?php echo $_SESSION['nome'];?> </div>
         <div class="action-button">
             <i class="fa-solid fa-bars"></i>
         </div>
