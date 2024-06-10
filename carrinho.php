@@ -14,7 +14,8 @@ if ($conexao->connect_error) {
     die("Erro de conexão: " . $conexao->connect_error);
 }
 
-$stmt = $conexao->prepare("SELECT r.id, r.nome, r.descricao, r.foto, r.preco, c.quantidade FROM carrinho c JOIN roupas r ON c.produto_id = r.id WHERE c.usuario_id = ?");
+$stmt = $conexao->prepare("SELECT r.id, r.nome, r.descricao, r.foto, r.preco, r.quantidade_estoque, c.quantidade FROM carrinho c JOIN roupas r ON c.produto_id = r.id WHERE c.usuario_id = ?");
+
 $stmt->bind_param("i", $_SESSION['id']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -106,31 +107,39 @@ $conexao->close();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($produtos_carrinho as $produto) : ?>
-                                <tr>
-                                    <td>
-                                        <div class="produtocarrinho">
-                                            <img src= <?php echo $produto['foto']; ?>
-                                            <?php echo $produto['id']; ?> alt="<?php echo $produto['nome']; ?>">
+                        <?php foreach ($produtos_carrinho as $produto) : ?>
+                            <tr>
+                                <td>
+                                    <div class="produtocarrinho">
+                                        <?php if($produto['quantidade_estoque'] < $produto['quantidade']): ?>
+                                            <p>Não há quantidade suficiente em estoque</p>
+                                            <td>
+                                                <form class="remover-form" method="post" action="rem_carrinho.php">
+                                                    <input type="hidden" name="produto_id" value="<?php echo $produto['id']; ?>">
+                                                    <button type="submit" class="remover-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                </form>
+                                             </td>
+                                            <script>window.location.href = 'carrinho.php';</script>
+                                        <?php else: ?>
+                                            <img src="<?php echo $produto['foto']; ?>" alt="<?php echo $produto['nome']; ?>">
                                             <div class="info">
                                                 <div class="title"><?php echo $produto['nome']; ?></div>
                                                 <div class="category"><?php echo $produto['descricao']; ?></div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></td>
-                                    <td> <?php echo $produto['quantidade']; ?> 
-                                        </div>
-                                    </td>
-                                    <td>R$ <?php echo number_format($produto['preco'] * $produto['quantidade'], 2, ',', '.'); ?></td>
-                                    <td>
-                                        <form class="remover-form" method="post" action="rem_carrinho.php">
-                                            <input type="hidden" name="produto_id" value="<?php echo $produto['id']; ?>">
-                                            <button type="submit" class="remover-btn"><i class="fa-solid fa-xmark"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                </td>
+                                <td>R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></td>
+                                <td><?php echo $produto['quantidade']; ?></td>
+                                <td>R$ <?php echo number_format($produto['preco'] * $produto['quantidade'], 2, ',', '.'); ?></td>
+                                <td>
+                                    <form class="remover-form" method="post" action="rem_carrinho.php">
+                                        <input type="hidden" name="produto_id" value="<?php echo $produto['id']; ?>">
+                                        <button type="submit" class="remover-btn"><i class="fa-solid fa-xmark"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                 </section>
@@ -146,7 +155,15 @@ $conexao->close();
                             <span>R$ <?php echo calcularSubtotal($produtos_carrinho); ?></span>
                         </footer>
                     </div>
-                    <a href="pagamento.php"><button class="finalizar-compra">Ir para pagamento</button></a>
+                    <form action="pagamento.php" method="get">
+                        <button type="submit" class="finalizar-compra">Ir para pagamento</button>
+                     </form>
+
+                    <?php
+                    if (empty($produtos_carrinho)) {
+                        echo "<script>window.location.href = 'carrinho.php';</script>";
+                    }
+                    ?>
                 </aside>
             </div>
 

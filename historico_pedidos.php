@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nome'])) {
+if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
@@ -13,13 +13,13 @@ if ($conexao->connect_error) {
 }
 
 $id_usuario = $_SESSION['id'];
-$sql = "SELECT * FROM historico_pedidos WHERE usuario_id = ?";
+$sql = "SELECT id, data_pedido, total FROM historico_pedidos WHERE usuario_id = ?";
 $stmt = $conexao->prepare($sql);
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,28 +39,29 @@ $result = $stmt->get_result();
                 <li><a href="mulher.php">feminino</a></li>
                 <li><a href="quemsomos.php">quem somos</a></li>
                 <li class="carrinho"><a href="carrinho.php"><img src="imagens/carrinho.png" alt="carrinho"></a></li>
-                <li class="logo">
-                    <span><?php echo $_SESSION['nome']; ?></span>
-                    <a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a>
-                </li>
+                <li class="logo"><a href="logout.php"><img src="imagens/logouticon.png" alt="logout"></a></li>
             </ul>
         </div>
+        <div class="action-button">
+            <i class="fa-solid fa-bars"></i>
+        </div>
     </nav>
-    <h1>Histórico de Pedidos</h1>
+
     <div class="content">
+        <h1>Histórico de Pedidos</h1>
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='pedido'>";
                 echo "<h2>Pedido #" . $row['id'] . "</h2>";
                 echo "<p>Data do Pedido: " . $row['data_pedido'] . "</p>";
-                echo "<p>Valor Total: R$" . $row['total'] . "</p>";
+                echo "<p>Valor Total: R$" . number_format($row['total'], 2, ',', '.') . "</p>";
 
                 // Buscar os itens associados a este pedido
-                $sql_itens = "SELECT r.nome, r.descricao, r.preco, r.foto, h.quantidade 
-                              FROM historico_pedido_itens h 
-                              INNER JOIN roupas r ON h.produto_id = r.id 
-                              WHERE h.pedido_id = ?";
+                $sql_itens = "SELECT r.nome, r.descricao, r.preco, r.foto, hpi.quantidade 
+                              FROM historico_pedido_itens hpi 
+                              INNER JOIN roupas r ON hpi.produto_id = r.id 
+                              WHERE hpi.pedido_id = ?";
                 $stmt_itens = $conexao->prepare($sql_itens);
                 $stmt_itens->bind_param("i", $row['id']);
                 $stmt_itens->execute();
@@ -74,7 +75,7 @@ $result = $stmt->get_result();
                     echo "<p>Produto: " . $item['nome'] . "</p>";
                     echo "<p>Descrição: " . $item['descricao'] . "</p>";
                     echo "<p>Quantidade: " . $item['quantidade'] . "</p>";
-                    echo "<p>Preço: R$" . $item['preco'] . "</p>";
+                    echo "<p>Preço: R$" . number_format($item['preco'], 2, ',', '.') . "</p>";
                     echo "</div>";
                     echo "</li>";
                 }
