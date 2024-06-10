@@ -157,13 +157,14 @@ $conexao->close();
                     </div>
                     <?php
                     if (empty($produtos_carrinho)) {
-                        echo "<script>window.location.href = 'carrinho.php';</script>";
+                        // Se o carrinho estiver vazio, você pode adicionar uma mensagem ou redirecionar, se necessário.
+                    } else {
+                        echo '<form action="pagamento.php" method="get">
+                                <button type="submit" class="finalizar-compra">Ir para pagamento</button>
+                              </form>';
                     }
                     ?>
-                    <form action="pagamento.php" method="get">
-                        <button type="submit" class="finalizar-compra">Ir para pagamento</button>
-                     </form>
-
+                    
                 </aside>
             </div>
 
