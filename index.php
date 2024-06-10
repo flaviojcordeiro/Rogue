@@ -7,7 +7,7 @@ if ($conexao->connect_error) {
     die("Erro de conexão: " . $conexao->connect_error);
 }
 
-$sql = "SELECT * FROM roupas"; 
+$sql = "SELECT * FROM roupas WHERE quantidade_estoque > 0";
 
 $resultado = $conexao->query($sql);
 
