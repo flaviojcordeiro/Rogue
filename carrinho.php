@@ -155,15 +155,15 @@ $conexao->close();
                             <span>R$ <?php echo calcularSubtotal($produtos_carrinho); ?></span>
                         </footer>
                     </div>
-                    <form action="pagamento.php" method="get">
-                        <button type="submit" class="finalizar-compra">Ir para pagamento</button>
-                     </form>
-
                     <?php
                     if (empty($produtos_carrinho)) {
                         echo "<script>window.location.href = 'carrinho.php';</script>";
                     }
                     ?>
+                    <form action="pagamento.php" method="get">
+                        <button type="submit" class="finalizar-compra">Ir para pagamento</button>
+                     </form>
+
                 </aside>
             </div>
 
