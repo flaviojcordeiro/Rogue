@@ -71,11 +71,18 @@ CREATE TABLE historico_pedido_itens (
     FOREIGN KEY (produto_id) REFERENCES roupas(id)
 );
 
-
-
 CREATE TABLE preferencias (
     usuario_id INT PRIMARY KEY,
     preferencias VARCHAR(255),
     genero VARCHAR(50),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE favoritos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_roupa INT,
+    data_favoritacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_roupa) REFERENCES roupas(id)
 );
