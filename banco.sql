@@ -3,7 +3,7 @@ CREATE TABLE usuarios (
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    cpf VARCHAR(20) NOT NULL,
+    cpf VARCHAR(20) NOT NULL UNIQUE,
     endereco TEXT NOT NULL,
     data_nascimento DATE NOT NULL,
     is_admin INT  DEFAULT 0;
@@ -56,13 +56,22 @@ CREATE TABLE chat (
 CREATE TABLE historico_pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
+    total DECIMAL(10, 2) NOT NULL,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE historico_pedido_itens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT,
     produto_id INT,
     quantidade INT,
-    preco DECIMAL(10, 2) NOT NULL,
-    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    preco DECIMAL(10, 2),
+    FOREIGN KEY (pedido_id) REFERENCES historico_pedidos(id),
     FOREIGN KEY (produto_id) REFERENCES roupas(id)
 );
+
+
 
 CREATE TABLE preferencias (
     usuario_id INT PRIMARY KEY,
