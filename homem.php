@@ -84,19 +84,8 @@
         <img src="imagens/roupasaleatorias/mascroupa1.png" alt="Item 1">
         <h3>Bermuda moletom Beje</h3>
         <div class="btns">
-            <button onclick="Toggle1()" id="btn-fav1" class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+            <button onclick="toggleFavorite('btn-fav1', 'mascroupa1')" id="btn-fav1" class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
         </div>
-            <script>
-                var btnvar1 = document.getElementById('btn-fav1');
-                function Toggle1(){
-                    if(btnvar1.style.color =="red") {
-                        btnvar1.style.color = "grey"
-                    }
-                    else {
-                        btnvar1.style.color = "red"
-                    }
-                }
-            </script>
         <p>R$ 149,99</p>
         <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
@@ -104,19 +93,8 @@
         <img src="imagens/roupasaleatorias/mascroupa2.png" alt="Item 2">
         <h3>Jaqueta USA Azul</h3>
         <div class="btns">
-            <button onclick="Toggle2()" id="btn-fav2" class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+            <button onclick="toggleFavorite('btn-fav2', 'mascroupa2')" id="btn-fav2" class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
         </div>
-            <script>
-                var btnvar2 = document.getElementById('btn-fav2');
-                function Toggle2(){
-                    if(btnvar2.style.color =="red") {
-                        btnvar2.style.color = "grey"
-                    }
-                    else {
-                        btnvar2.style.color = "red"
-                    }
-                }
-            </script>
         <p>R$ 249,99</p>
         <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
@@ -124,19 +102,8 @@
         <img src="imagens/roupasaleatorias/mascroupa3.png" alt="Item 3">
         <h3>Polo Branca</h3>
         <div class="btns">
-            <button onclick="Toggle3()" id="btn-fav3" class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+            <button onclick="toggleFavorite('btn-fav3', 'mascroupa3')" id="btn-fav3" class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
         </div>
-            <script>
-                var btnvar3 = document.getElementById('btn-fav3');
-                function Toggle3(){
-                    if(btnvar3.style.color =="red") {
-                        btnvar3.style.color = "grey"
-                    }
-                    else {
-                        btnvar3.style.color = "red"
-                    }
-                }
-            </script>
         <p>R$ 99,99</p>
         <div class="add-carrinho">Adicionar ao carrinho</div>
         </div>
@@ -214,4 +181,71 @@
     </footer>
 </body>
 <script src="script.js"></script>
+<script>
+    // Função para salvar ou remover favoritos no localStorage e servidor
+    function toggleFavorite(buttonId, idRoupa) {
+        const button = document.getElementById(buttonId);
+        const isFavorite = button.classList.contains('favorite');
+
+        <?php if (isset($_SESSION['nome'])) : ?>
+            const userFavorite = !isFavorite;
+
+            // Atualizar a aparência do botão
+            button.classList.toggle('favorite');
+            button.querySelector('i').classList.toggle('fa-solid');
+            button.querySelector('i').classList.toggle('fa-regular');
+
+            // Adicionar ou remover a classe 'red' apenas quando o item é favorito
+            if (userFavorite) {
+                button.classList.add('red');
+            } else {
+                button.classList.remove('red');
+            }
+
+            // Salvar no localStorage
+            localStorage.setItem(buttonId, userFavorite);
+
+            // Atualizar no servidor
+            const formData = new FormData();
+            formData.append('id_roupa', idRoupa);
+            formData.append('favorite', userFavorite ? '1' : '0');
+
+            fetch('update_favorites.php', {
+                method: 'POST',
+                body: formData
+            }).catch(error => console.error('Erro ao atualizar favoritos no servidor:', error));
+        <?php else : ?>
+            window.location.href = 'login.php';
+        <?php endif; ?>
+    }
+
+    // Função para carregar o estado dos favoritos ao iniciar a página
+    function loadFavorites() {
+        const buttons = document.querySelectorAll('.favorite-btn');
+        buttons.forEach(button => {
+            const buttonId = button.id;
+            const isFavorite = localStorage.getItem(buttonId) === 'true';
+            if (isFavorite) {
+                button.classList.add('favorite');
+                button.querySelector('i').classList.add('fa-solid');
+                button.querySelector('i').classList.remove('fa-regular');
+            }
+        });
+    }
+
+    // Chamar a função ao carregar a página
+    window.onload = loadFavorites;
+
+    // Função para limpar os favoritos salvos no localStorage ao deslogar
+    <?php if (!isset($_SESSION['nome'])) : ?>
+        function clearLocalStorageFavorites() {
+            const buttons = document.querySelectorAll('.favorite-btn');
+            buttons.forEach(button => {
+                const buttonId = button.id;
+                localStorage.removeItem(buttonId);
+            });
+        }
+        clearLocalStorageFavorites(); // Chama a função imediatamente ao deslogar
+    <?php endif; ?>
+</script>
 </html>
