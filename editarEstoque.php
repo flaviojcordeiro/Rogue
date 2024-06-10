@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +49,39 @@
     $password = "PUC@1234";
     $database = "rogue";
 
-    // Cria conexao
     $conn = mysqli_connect($hostname, $username, $password, $database);
 
-    // Checa conexao
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $id = isset($_GET['id']) ? $_GET['id'] : '';
+    $nome = '';
+    $descricao = '';
+    $categoria_id = '';
+    $genero = '';
+    $preco = '';
+    $foto = '';
+    $quantidade_estoque = '';
+
+    if ($id) {
+        $sql = "SELECT * FROM roupas WHERE id=?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $nome = $row['nome'];
+            $descricao = $row['descricao'];
+            $categoria_id = $row['categoria_id'];
+            $genero = $row['genero'];
+            $preco = $row['preco'];
+            $foto = $row['foto'];
+            $quantidade_estoque = $row['quantidade_estoque'];
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
@@ -68,54 +95,51 @@
         $foto = isset($_POST['foto']) ? $_POST['foto'] : '';
         $quantidade_estoque = isset($_POST['quantidade_estoque']) ? $_POST['quantidade_estoque'] : '';
 
-        // Prepara o codigo sql para update
+
         $update_roupa_sql = "UPDATE roupas SET nome=?, descricao=?, categoria_id=?, genero=?, preco=?, foto=?, quantidade_estoque=? WHERE id=?";
         $update_roupa_stmt = mysqli_prepare($conn, $update_roupa_sql);
 
         mysqli_stmt_bind_param($update_roupa_stmt, "sssssssi", $nome, $descricao, $categoria_id, $genero, $preco, $foto, $quantidade_estoque, $id);
 
-        // Executa o statement com os valores
         if (mysqli_stmt_execute($update_roupa_stmt)) {
             echo "<h1 id=centralizarmensagemsucesso>Roupa atualizada com sucesso!</h1>";
         } else {
             echo "<p>Erro executando UPDATE: " . mysqli_error($conn) . "</p>";
         }
 
-        // Fecha o statement
         mysqli_stmt_close($update_roupa_stmt);
         mysqli_close($conn);
-    } else {
-        ;
     }
     ?>
 
     <section class='form-adicionar-estoque'>
         <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label><b>ID</b></label>
-            <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
-            <input class="input-field" name="id_display" type="text"
-                value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>" disabled>
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input class="input-field" name="id_display" type="text" value="<?php echo $id; ?>" disabled>
 
             <label><b>Nome</b></label>
-            <input class="input-field" name="nome" type="text" required>
+            <input class="input-field" name="nome" type="text" value="<?php echo $nome; ?>" required>
 
             <label><b>Descrição</b></label>
-            <input class="input-field" name="descricao" type="text" required>
+            <input class="input-field" name="descricao" type="text" value="<?php echo $descricao; ?>" required>
 
             <label><b>Categoria ID</b></label>
-            <input class="input-field" name="categoria_id" type="number" required>
+            <input class="input-field" name="categoria_id" type="number" value="<?php echo $categoria_id; ?>" required>
 
             <label><b>Gênero</b></label>
-            <input class="input-field" name="genero" type="text" required>
+            <input class="input-field" name="genero" type="text" value="<?php echo $genero; ?>" required>
 
             <label><b>Preço</b></label>
-            <input class="input-field" name="preco" type="number" step="0.01" min="0" required>
+            <input class="input-field" name="preco" type="number" step="0.01" min="0" value="<?php echo $preco; ?>"
+                required>
 
-            <label><b>Foto(insira a url da foto)</b></label>
-            <input class="input-field" name="foto" type="text" required>
+            <label><b>Foto (insira a url da foto)</b></label>
+            <input class="input-field" name="foto" type="text" value="<?php echo $foto; ?>" required>
 
             <label><b>Quantidade em Estoque</b></label>
-            <input class="input-field" name="quantidade_estoque" type="number" min="0" required>
+            <input class="input-field" name="quantidade_estoque" type="number" min="0"
+                value="<?php echo $quantidade_estoque; ?>" required>
 
             <p>
                 <input type="submit" value="Editar Roupa" class="submit-btn">

@@ -1,7 +1,64 @@
 <?php
-    session_start();
+session_start();
+if ($_SESSION['is_admin'] != 1) {
+    echo "
+    <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Permissão Negada</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+            }
+            .message-box {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                text-align: center;
+            }
+            .message-box h1 {
+                margin: 0 0 10px;
+                font-size: 24px;
+                color: #333;
+            }
+            .message-box p {
+                margin: 0 0 20px;
+                color: #666;
+            }
+            .message-box a {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 10px 20px;
+                color: #fff;
+                background-color: #000000;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+            .message-box a:hover {
+                background-color: #333333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='message-box'>
+            <h1>Acesso Negado</h1>
+            <p>Você não tem permissão para acessar esta página.</p>
+            <a href='index.php'>Voltar para a página inicial</a>
+        </div>
+    </body>
+    </html>";
+    exit();
+}
 ?>
-                
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,16 +133,16 @@
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td class='text-center'>". $row["id"]. "</td>";
-                                echo "<td class='text-center'>". $row["nome"]. "</td>";
-                                echo "<td class='text-center'>". $row["descricao"]. "</td>";
-                                echo "<td class='text-center'>". $row["categoria_id"]. "</td>";
-                                echo "<td class='text-center'>". $row["genero"]. "</td>";
-                                echo "<td class='text-center'>". $row["preco"]. "</td>";
-                                echo "<td class='text-center'>". $row["quantidade_estoque"]. "</td>";
+                                echo "<td class='text-center'>" . $row["id"] . "</td>";
+                                echo "<td class='text-center'>" . $row["nome"] . "</td>";
+                                echo "<td class='text-center'>" . $row["descricao"] . "</td>";
+                                echo "<td class='text-center'>" . $row["categoria_id"] . "</td>";
+                                echo "<td class='text-center'>" . $row["genero"] . "</td>";
+                                echo "<td class='text-center'>" . $row["preco"] . "</td>";
+                                echo "<td class='text-center'>" . $row["quantidade_estoque"] . "</td>";
                                 echo "<td class='text-center'>";
-                                echo "<a href='editarestoque.php?id=". $row["id"]. "'><i class='fas fa-edit'></i></a>";
-                                echo "<a href='excluirestoque.php?id=". $row["id"]. "'><i class='fas fa-trash-alt'></i></a>";
+                                echo "<a href='editarestoque.php?id=" . $row["id"] . "'><i class='fas fa-edit'></i></a>";
+                                echo "<a href='excluirestoque.php?id=" . $row["id"] . "'><i class='fas fa-trash-alt'></i></a>";
                                 echo "</td>";
                                 echo "</tr>";
                             }
