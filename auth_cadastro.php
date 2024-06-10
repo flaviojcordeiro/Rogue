@@ -21,9 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se todos os campos estão preenchidos
     if (!empty($nome) && !empty($email) && !empty($senha) && !empty($data_nascimento) && !empty($cpf) && !empty($endereco)) {
 
-        
         $data_atual = date('Y-m-d');
-        session_start();
 
         if ($data_nascimento >= $data_atual) {
             header("Location: cadastro.php?error=invalid_birthdate");
@@ -45,27 +43,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        // Hash da senha
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-        if ($conn->connect_error) {
-            die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
-        }
 
         $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, data_nascimento, cpf, endereco) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $nome, $email, $senha_hash, $data_nascimento, $cpf, $endereco);
 
-        if ($stmt->execute()) {
+        try {
+            $stmt->execute();
             header("Location: login.php?signin=correct");
             exit();
-        } else {
-            echo "Erro ao cadastrar o usuário: " . $stmt->error;
+        } catch (mysqli_sql_exception $e) {
+            if ($e->getCode() === 1062) { // Código de erro para "Duplicate entry"
+                header("Location: cadastro.php?error=duplicate_cpf");
+            } else {
+                echo "Erro ao cadastrar o usuário: " . $e->getMessage();
+            }
+            exit();
         }
 
-        $stmt->close();
-        $conn->close();
     } else {
         echo "Por favor, preencha todos os campos.";
     }
 }
-?>
+
+$conn->close();

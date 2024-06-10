@@ -237,12 +237,10 @@ $conexao->close();
                     url: form.attr("action"),
                     data: formData,
                     success: function(response) {
-                        alert(response);
                         location.reload(); // Recarrega a página após remover o produto do carrinho
                     },
                     error: function(xhr, status, error) {
                         alert("Erro ao remover produto do carrinho. Por favor, tente novamente.");
-                        console.log(xhr.responseText);
                     }
                 });
             });

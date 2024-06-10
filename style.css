@@ -1684,8 +1684,11 @@ aside {
   color: white;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   margin-top: 15px;
+}
+
+.botao_historico:hover {
+  background-color: #50575f;
 }
 
 .modal {

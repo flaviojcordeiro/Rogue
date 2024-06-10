@@ -92,7 +92,7 @@ if (!isset($_SESSION['nome'])) {
     <?php endif; ?>
     <div class="cadastro-container">
         <h2>Editar Informações</h2>
-        <form action="processar_edicao.php" method="post">
+        <form action="editar_usuario_processar.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome"
                 value="<?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] : ''; ?>"><br>

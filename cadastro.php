@@ -5,6 +5,12 @@ if (isset($_GET['error']) && $_GET['error'] == 'invalid_birthdate') {
         showModal();
     });</script>";
 }
+if (isset($_GET['error']) && $_GET['error'] == 'duplicate_cpf') {
+    echo "<script>document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('errorMessage').textContent = 'CPF já cadastrado. Por favor, use um CPF diferente.';
+        showModal();
+    });</script>";
+}
 ?>
 
 <!DOCTYPE html>
