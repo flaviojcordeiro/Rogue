@@ -39,7 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } catch (mysqli_sql_exception $e) {
             if ($e->getCode() === 1062) { // Código de erro para "Duplicate entry"
-                header("Location: cadastro.php?error=duplicate_cpf");
+                if (strpos($e->getMessage(), 'cpf') !== false) {
+                    header("Location: cadastro.php?error=duplicate_cpf");
+                } elseif (strpos($e->getMessage(), 'email') !== false) {
+                    header("Location: cadastro.php?error=duplicate_email");
+                } else {
+                    echo "Erro ao cadastrar o usuário: " . $e->getMessage();
+                }
             } else {
                 echo "Erro ao cadastrar o usuário: " . $e->getMessage();
             }
@@ -52,3 +58,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
+?>

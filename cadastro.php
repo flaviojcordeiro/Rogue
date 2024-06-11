@@ -11,6 +11,13 @@ if (isset($_GET['error']) && $_GET['error'] == 'duplicate_cpf') {
         showModal();
     });</script>";
 }
+
+if (isset($_GET['error']) && $_GET['error'] == 'duplicate_email') {
+    echo "<script>document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('errorMessage').textContent = 'Email já cadastrado. Por favor, use o um email diferente.';
+        showModal();
+    });</script>";
+}
 ?>
 
 <!DOCTYPE html>

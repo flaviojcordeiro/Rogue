@@ -26,15 +26,6 @@ CREATE TABLE roupas (
     FOREIGN KEY (categoria_id) REFERENCES categorias_roupas(id)
 );
 
-CREATE TABLE roupas_likes (
-    usuario_id INT,
-    roupa_id INT,
-    gostou BOOLEAN,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY (roupa_id) REFERENCES roupas(id),
-    PRIMARY KEY (usuario_id, roupa_id)
-);
-
 CREATE TABLE carrinho (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
