@@ -125,11 +125,11 @@ if (!isset($_SESSION['nome'])) {
         </form>
 
         <br>
-        <form>
-        <a href="historico_pedidos.php" class="botao_historico">Histórico de Pedidos</a>
+        <form onsubmit="return goToHistory();">
+            <input type="submit" value="Historico de Pedidos">
         </form>
+
     </div>
 </body>
 <script src="script.js"></script>
-
 </html>

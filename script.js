@@ -13,3 +13,8 @@ function goToChat() {
     window.location.href = 'usuariochat.php';
     return false; 
 }
+
+function goToHistory() {
+    window.location.href = 'historico_pedidos.php';
+    return false; 
+}
