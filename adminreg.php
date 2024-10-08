@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['is_admin'] != 1) {
+if (empty($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     echo "
     <html lang='en'>
     <head>
