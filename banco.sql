@@ -6,7 +6,7 @@ CREATE TABLE usuarios (
     cpf VARCHAR(20) NOT NULL UNIQUE,
     endereco TEXT NOT NULL,
     data_nascimento DATE NOT NULL,
-    is_admin INT  DEFAULT 0;
+    is_admin INT  DEFAULT 0
 );
 
 CREATE TABLE categorias_roupas (
@@ -31,7 +31,7 @@ CREATE TABLE carrinho (
     usuario_id INT,
     produto_id INT,
     quantidade INT,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
 CREATE TABLE chat (
