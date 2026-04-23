@@ -1,0 +1,24 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: SonarCloudPrepare@3
+  inputs:
+    SonarCloud: 'sonarqube'
+    organization: 'pucpr-estudantes'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '5a2b84faa8bc28eb20c7ab704641379d311a7c9ev'
+    cliSources: '.'
+
+
+- task: SonarCloudAnalyze@3
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarCloudPublish@3
+  inputs:
+    pollingTimeoutSec: '300'
